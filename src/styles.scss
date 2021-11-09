@@ -4,10 +4,10 @@
 @import '~bootstrap/scss/bootstrap';
 
 /* Import Custom SCSS file. */
+@import './scss/variable';
+@import './scss/font';
 @import './scss/navbar';
 
-@import './scss/variable';
-
 /* Global style */
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: $color1; }
+html, body { height: 100%; font-family: normal-font!important; }
+body { margin: 0; }
