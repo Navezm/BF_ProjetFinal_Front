@@ -6,5 +6,8 @@
 /* Import Custom SCSS file. */
 @import './scss/navbar';
 
+@import './scss/variable';
+
+/* Global style */
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: $color1; }
