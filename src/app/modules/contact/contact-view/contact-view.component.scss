@@ -1,0 +1,13 @@
+#contactTitle{
+    position: absolute;
+    top: 50%;
+    left: 46%;
+    z-index: 3;
+    h2{
+        font-size: 2rem;
+    }
+}
+
+#contactTitle + img {
+    position: relative;
+}
