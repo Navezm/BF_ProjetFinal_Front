@@ -1,7 +1,14 @@
+#divContact{
+    height: 60vh;
+    border: 1px black solid;
+    background-image: url(../../../../assets/img/picture/IMG_52381.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 #contactTitle{
-    position: absolute;
-    top: 50%;
-    left: 46%;
+    position: relative;
     z-index: 3;
     h2{
         font-size: 2rem;
