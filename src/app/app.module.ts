@@ -7,6 +7,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AboutModule } from './modules/about/about.module';
 import { ContactModule } from './modules/contact/contact.module';
+import { PictureModule } from './modules/picture/picture.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ContactModule } from './modules/contact/contact.module';
     NgbModule,
     BrowserAnimationsModule,
     AboutModule,
-    ContactModule
+    ContactModule,
+    PictureModule
   ],
   providers: [],
   bootstrap: [AppComponent]
