@@ -8,10 +8,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AboutModule } from './modules/about/about.module';
 import { ContactModule } from './modules/contact/contact.module';
 import { PictureModule } from './modules/picture/picture.module';
+import { CardComponent } from './modules/shared/card/card.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,

@@ -7,7 +7,9 @@ const routes: Routes = [
   { path: 'about', loadChildren: () => import('./modules/about/about.module')
       .then(t => t.AboutModule) },
   { path: 'contact', loadChildren: () => import('./modules/contact/contact.module')
-      .then(t => t.ContactModule) }
+      .then(t => t.ContactModule) },
+  { path: 'picture', loadChildren: () => import('./modules/picture/picture.module')
+      .then(t => t.PictureModule) }
 ];
 
 @NgModule({
