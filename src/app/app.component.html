@@ -9,7 +9,7 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="">Home</a>
         </li>
-        <li class="nav-item dropdown">
+        <li *ngIf="isloggedIn()" class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Picture
           </a>
@@ -25,7 +25,7 @@
             <a class="dropdown-item" href="#">Reservation</a>
           </div>
         </li>
-        <li class="nav-item dropdown">
+        <li *ngIf="isloggedIn()" class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Painting
           </a>
@@ -44,6 +44,12 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="contact">Contact</a>
+        </li>
+        <li class="nav-item" *ngIf="!loggedIn()">
+          <a class="nav-link" routerLink="login">Login</a>
+        </li>
+        <li class="nav-item" *ngIf="loggedIn()">
+          <a class="nav-link" (click)="logout()">Logout</a>
         </li>
       </ul>
     </div>

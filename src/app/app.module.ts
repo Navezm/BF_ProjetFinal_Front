@@ -11,6 +11,12 @@ import { PictureModule } from './modules/picture/picture.module';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import {JwtModule} from "@auth0/angular-jwt";
+import {HttpClientModule} from "@angular/common/http";
+
+export function tokenGetter() {
+  return localStorage.getItem('token');
+}
 
 @NgModule({
   declarations: [
@@ -21,12 +27,19 @@ import {ReactiveFormsModule} from "@angular/forms";
     imports: [
         BrowserModule,
         AppRoutingModule,
+        JwtModule.forRoot({
+          config: {
+            tokenGetter: tokenGetter,
+            allowedDomains: ["localhost:8080"]
+          }
+        }),
         NgbModule,
         BrowserAnimationsModule,
         AboutModule,
         ContactModule,
         PictureModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        HttpClientModule
     ],
   providers: [],
   bootstrap: [AppComponent]

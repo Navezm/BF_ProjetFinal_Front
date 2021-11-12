@@ -1,4 +1,4 @@
-<div class='container'>
+<div class='container d-flex justify-content-center'>
   <div class='col-sm-8 col-sm-offset2'>
     <form (ngSubmit)="submit()" [formGroup]="userForm">
       <div class="form-group">
@@ -6,7 +6,7 @@
           Username
         </label>
         <input type="text" id="username" class="form-control"
-               placeholder="Username" [formControl]="usernameCtl">
+               placeholder="Username*" [formControl]="usernameCtl">
         <small class="text-danger" *ngIf="usernameCtl.hasError('required')">
           required
         </small>
@@ -16,7 +16,7 @@
           Password
         </label>
         <input type="password" id="password" class="form-control"
-               placeholder="" [formControl]="passwordCtl">
+               placeholder="Password*" [formControl]="passwordCtl">
         <small class="text-danger" *ngIf="passwordCtl.hasError('required')">
           required
         </small>

@@ -22,7 +22,7 @@ export class AuthService {
   }
 
   public login(user: User) {
-    return this.server.post<User>('login', user)
+    return this.server.post<User>('/login', user)
       .pipe(map((user: User) => {
         if(user.token) {
           localStorage.setItem('token', user.token.replace('Bearer ', ''));
@@ -56,9 +56,23 @@ export class AuthService {
     return false;
   }
 
-  // public isUser() {
-  //   return this.checkAuthorization(Authorization.USER);
-  // }
+  public isUser() {
+    const role: Role = {
+      id: 2,
+      name: "USER"
+    }
+
+    return this.checkAuthorization(role);
+  }
+
+  public isAdmin() {
+    const role: Role = {
+      id: 1,
+      name: "ADMIN"
+    }
+
+    return this.checkAuthorization(role);
+  }
 
   public getloggedIn() {
     return this.isLoggedIn;
