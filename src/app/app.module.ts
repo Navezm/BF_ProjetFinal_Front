@@ -10,6 +10,7 @@ import { ContactModule } from './modules/contact/contact.module';
 import { PictureModule } from './modules/picture/picture.module';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -17,15 +18,16 @@ import { RegisterComponent } from './components/register/register.component';
     LoginComponent,
     RegisterComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    NgbModule,
-    BrowserAnimationsModule,
-    AboutModule,
-    ContactModule,
-    PictureModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        NgbModule,
+        BrowserAnimationsModule,
+        AboutModule,
+        ContactModule,
+        PictureModule,
+        ReactiveFormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

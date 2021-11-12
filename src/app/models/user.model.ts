@@ -8,8 +8,4 @@ export interface User {
   roles: Array<Role>;
   address: Address;
   token: string;
-  accountNonExpired: boolean;
-  accountNonLocker: boolean;
-  creditialsNonExpired: boolean;
-  enabled: boolean;
 }
