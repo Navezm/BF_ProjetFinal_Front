@@ -2,10 +2,11 @@ import {Address} from "./address.model";
 import {Role} from "./role.model";
 
 export interface User {
-  id: number;
+  id?: number;
   username: string;
   email: string;
-  roles: Array<Role>;
+  password?: string;
+  roles?: Array<Role>;
   address: Address;
-  token: string;
+  token?: string;
 }

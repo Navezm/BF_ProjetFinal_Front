@@ -3,7 +3,7 @@ import {User} from "../models/user.model";
 import {CRUD, CrudConfig} from "./crud";
 import {ServerService} from "./server.service";
 
-const config: CrudConfig = { path: 'user' }
+const config: CrudConfig = { path: '/user' }
 
 @Injectable({
   providedIn: 'root'

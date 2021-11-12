@@ -46,33 +46,33 @@ export class AuthService {
     return user.id == loggedUser.id;
   }
 
-  private checkAuthorization(type: Role) {
-    const user = JSON.parse(<string>localStorage.getItem('user')) as User;
+  // private checkAuthorization(type: Role) {
+  //   const user = JSON.parse(<string>localStorage.getItem('user')) as User;
+  //
+  //   if(user) {
+  //     return user.roles.includes(type);
+  //   }
+  //
+  //   return false;
+  // }
 
-    if(user) {
-      return user.roles.includes(type);
-    }
-
-    return false;
-  }
-
-  public isUser() {
-    const role: Role = {
-      id: 2,
-      name: "USER"
-    }
-
-    return this.checkAuthorization(role);
-  }
-
-  public isAdmin() {
-    const role: Role = {
-      id: 1,
-      name: "ADMIN"
-    }
-
-    return this.checkAuthorization(role);
-  }
+  // public isUser() {
+  //   const role: Role = {
+  //     id: 2,
+  //     name: "USER"
+  //   }
+  //
+  //   return this.checkAuthorization(role);
+  // }
+  //
+  // public isAdmin() {
+  //   const role: Role = {
+  //     id: 1,
+  //     name: "ADMIN"
+  //   }
+  //
+  //   return this.checkAuthorization(role);
+  // }
 
   public getloggedIn() {
     return this.isLoggedIn;
