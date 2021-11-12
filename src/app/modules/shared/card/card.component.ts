@@ -6,9 +6,9 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./card.component.scss']
 })
 export class CardComponent implements OnInit {
-  @Input("src") src: string = "";
+  // @Input("src") src: string = "";
 
-  
+
 
   constructor() { }
 
