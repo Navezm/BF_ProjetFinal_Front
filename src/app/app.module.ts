@@ -24,23 +24,23 @@ export function tokenGetter() {
     LoginComponent,
     RegisterComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        JwtModule.forRoot({
-          config: {
-            tokenGetter: tokenGetter,
-            allowedDomains: ["localhost:8080"]
-          }
-        }),
-        NgbModule,
-        BrowserAnimationsModule,
-        AboutModule,
-        ContactModule,
-        PictureModule,
-        ReactiveFormsModule,
-        HttpClientModule
-    ],
+  imports: [
+      BrowserModule,
+      AppRoutingModule,
+      JwtModule.forRoot({
+        config: {
+          tokenGetter: tokenGetter,
+          allowedDomains: ["localhost:8080"]
+        }
+      }),
+      NgbModule,
+      BrowserAnimationsModule,
+      AboutModule,
+      ContactModule,
+      PictureModule,
+      ReactiveFormsModule,
+      HttpClientModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

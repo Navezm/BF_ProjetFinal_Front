@@ -2,12 +2,20 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { PictureRoutingModule } from './picture-routing.module';
-import { PictureCardComponent } from './picture-card/picture-card.component';
+import { PictureViewComponent } from './picture-view/picture-view.component';
+import { EventComponent } from './event/event.component';
+import { TravelComponent } from './travel/travel.component';
+import { FoodComponent } from './food/food.component';
+import { PortraitComponent } from './portrait/portrait.component';
 
 
 @NgModule({
   declarations: [
-    PictureCardComponent
+    PictureViewComponent,
+    EventComponent,
+    TravelComponent,
+    FoodComponent,
+    PortraitComponent
   ],
   imports: [
     CommonModule,
