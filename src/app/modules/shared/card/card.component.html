@@ -1,10 +1,22 @@
-<script src="card.component.ts"></script>
-<div class="card" style="width: 100%;">
-  <img class="card-img-top" src="../../../../assets{{src}}" alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">Name: {{name}}</h5>
-    <p class="card-text">Description: {{description}}</p>
-    <p class="card-text">Price: {{price}}€</p>
-    <p class="card-text">Type: {{eventCategory}} {{paintingType}}</p>
-  </div>
+<!--<script src="card.component.ts"></script>-->
+<!--<div class="card" style="width: 100%;">-->
+<!--  <img class="card-img-top" src="../../../../assets{{src}}" alt="Card image cap">-->
+<!--  <div class="card-body">-->
+<!--    <h5 class="card-title">Name: {{name}}</h5>-->
+<!--    <p class="card-text">Description: {{description}}</p>-->
+<!--    <p class="card-text">Price: {{price}}€</p>-->
+<!--    <p class="card-text">Type: {{eventCategory}} {{paintingType}}</p>-->
+<!--  </div>-->
+<!--</div>-->
+
+<div class="w-100 divImgGalerie my-3 d-flex align-items-center justify-content-center">
+    <div class="divImgExplanation w-75 h-75 align-items-center justify-content-center mt-5">
+      <div class="text-center">
+        <h5 class="">Name: {{name}}</h5>
+        <p class="">Description: {{description}}</p>
+        <p class="">Price: {{price}}€</p>
+        <p class="">Type: {{eventCategory}} {{paintingType}}</p>
+      </div>
+    </div>
+  <img class="imgGalerie w-100 h-100 border border-dark" src="../../../../assets{{src}}">
 </div>
