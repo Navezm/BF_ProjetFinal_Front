@@ -13,7 +13,6 @@ import { RegisterComponent } from './components/register/register.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {JwtModule} from "@auth0/angular-jwt";
 import {HttpClientModule} from "@angular/common/http";
-import { CardComponent } from './components/card/card.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -24,7 +23,6 @@ export function tokenGetter() {
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    CardComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +43,6 @@ export function tokenGetter() {
   ],
   providers: [],
   exports: [
-    CardComponent
   ],
   bootstrap: [AppComponent]
 })

@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {PaintingType} from "../../models/paintingType.model";
-import {EventCategory} from "../../models/eventCategory.model";
+import {PaintingType} from "../../../models/paintingType.model";
+import {EventCategory} from "../../../models/eventCategory.model";
 
 @Component({
   selector: 'app-card',
