@@ -13,9 +13,8 @@ export class CardComponent implements OnInit {
   @Input('src') src: string = "";
   @Input('description') description: string = "";
   @Input('price') price: number = 0;
-  @Input('isAvailable') isAvailable: boolean = false;
-  @Input('paintingType') paintingType?: PaintingType;
-  @Input('eventCategory') eventCategory?: EventCategory;
+  @Input('paintingType') paintingType: string = "";
+  @Input('eventCategory') eventCategory: string = "";
 
   constructor() { }
 

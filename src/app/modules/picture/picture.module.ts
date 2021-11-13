@@ -7,6 +7,7 @@ import { EventComponent } from './event/event.component';
 import { TravelComponent } from './travel/travel.component';
 import { FoodComponent } from './food/food.component';
 import { PortraitComponent } from './portrait/portrait.component';
+import {SharedModule} from "../shared/shared.module";
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { PortraitComponent } from './portrait/portrait.component';
   ],
   imports: [
     CommonModule,
-    PictureRoutingModule
+    PictureRoutingModule,
+    SharedModule
   ]
 })
 export class PictureModule { }

@@ -9,6 +9,9 @@ import { CardComponent } from './card/card.component';
   declarations: [
     CardComponent
   ],
+  exports: [
+    CardComponent
+  ],
   imports: [
     CommonModule,
     SharedRoutingModule
