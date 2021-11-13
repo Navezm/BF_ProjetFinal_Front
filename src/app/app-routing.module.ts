@@ -13,7 +13,9 @@ const routes: Routes = [
   { path: 'contact', loadChildren: () => import('./modules/contact/contact.module')
       .then(t => t.ContactModule) },
   { path: 'picture', loadChildren: () => import('./modules/picture/picture.module')
-      .then(t => t.PictureModule) }
+      .then(t => t.PictureModule) },
+  { path: 'painting', loadChildren: () => import('./modules/painting/painting.module')
+      .then(t => t.PaintingModule)}
 ];
 
 @NgModule({

@@ -20,7 +20,7 @@ export class EventComponent implements OnInit {
 
   private getAll(id: number = 1){
     this.pictureCategoryService.getPictureByType(id)
-      .subscribe((pictures) => {
+      .subscribe((pictures: Picture[]) => {
         this.pictureList = pictures;
       })
   }
