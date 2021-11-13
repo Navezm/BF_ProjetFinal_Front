@@ -20,7 +20,7 @@ export class PortraitComponent implements OnInit {
 
   private getAll(id: number = 4){
     this.pictureCategoryService.getPictureByType(id)
-      .subscribe((pictures) => {
+      .subscribe((pictures: Picture[]) => {
         this.pictureList = pictures;
       })
   }

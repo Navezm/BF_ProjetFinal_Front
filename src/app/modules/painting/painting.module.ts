@@ -5,6 +5,7 @@ import { PaintingRoutingModule } from './painting-routing.module';
 import { PaintingViewComponent } from './painting-view/painting-view.component';
 import { LinesComponent } from './lines/lines.component';
 import { AbstractComponent } from './abstract/abstract.component';
+import {SharedModule} from "../shared/shared.module";
 
 
 @NgModule({
@@ -13,9 +14,10 @@ import { AbstractComponent } from './abstract/abstract.component';
     LinesComponent,
     AbstractComponent
   ],
-  imports: [
-    CommonModule,
-    PaintingRoutingModule
-  ]
+    imports: [
+        CommonModule,
+        PaintingRoutingModule,
+        SharedModule
+    ]
 })
 export class PaintingModule { }

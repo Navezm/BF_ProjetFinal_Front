@@ -20,8 +20,8 @@ export class FoodComponent implements OnInit {
 
   private getAll(id: number = 3){
     this.pictureCategoryService.getPictureByType(id)
-      .subscribe((pictures) => {
+      .subscribe((pictures: Picture[]) => {
         this.pictureList = pictures;
-      })
+      });
   }
 }

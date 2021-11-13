@@ -20,7 +20,7 @@ export class TravelComponent implements OnInit {
 
   private getAll(id: number = 2){
     this.pictureCategoryService.getPictureByType(id)
-      .subscribe((pictures) => {
+      .subscribe((pictures: Picture[]) => {
         this.pictureList = pictures;
       })
   }
