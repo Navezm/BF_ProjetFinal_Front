@@ -4,7 +4,7 @@ import {Address} from "./address.model";
 import {Status} from "./enums/status.enum";
 
 export interface PaintingPurchase {
-  id: number,
+  id?: number,
   status: Status,
   user: User,
   paintings: Array<Painting>,

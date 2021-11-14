@@ -9,6 +9,7 @@ import {PaintingService} from "../../../services/painting.service";
 })
 export class ShopPaintingComponent implements OnInit {
   paintingList!: Painting[];
+  panier: Painting[] = [];
 
   constructor(
     private paintingService: PaintingService
@@ -23,6 +24,12 @@ export class ShopPaintingComponent implements OnInit {
       .subscribe((paintings: Painting[]) => {
         this.paintingList = paintings;
       })
+  }
+
+  buyAction(item: Painting){
+    if(!this.panier.includes(item)){
+      this.panier.push(item);
+    }
   }
 
 }

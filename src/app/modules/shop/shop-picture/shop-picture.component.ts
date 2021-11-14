@@ -9,6 +9,7 @@ import {Picture} from "../../../models/picture.model";
 })
 export class ShopPictureComponent implements OnInit {
   pictureList!: Picture[]
+  panier: Picture[] = [];
 
   constructor(
     private pictureService: PictureService
@@ -23,6 +24,12 @@ export class ShopPictureComponent implements OnInit {
       .subscribe((pictures: Picture[]) => {
         this.pictureList = pictures;
       })
+  }
+
+  buyAction(item: Picture){
+    if(!this.panier.includes(item)){
+      this.panier.push(item);
+    }
   }
 
 }

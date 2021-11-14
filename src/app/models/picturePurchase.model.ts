@@ -3,7 +3,7 @@ import {User} from "./user.model";
 import {Picture} from "./picture.model";
 
 export interface PicturePurchase {
-  id: number,
+  id?: number,
   status: Status,
   user: User,
   pictures: Array<Picture>

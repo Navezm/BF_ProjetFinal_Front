@@ -1,9 +1,24 @@
-<div class="jumbotron basket">
-  <h1 class="display-4">Hello, world!</h1>
-  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+<script src="../../../services/picture-purchase.service.ts"></script>
+<div class="jumbotron basket py-3 mt-3">
+  <h1 class="display-4">Basket</h1>
+  <div *ngFor="let item of items" class="row">
+    <div class="col-10">
+      <p class="lead">{{item.name}}</p>
+    </div>
+    <div class="col-2">
+      <p>{{item.price}}€</p>
+    </div>
+  </div>
   <hr class="my-4">
-  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-  <p class="lead">
-    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+  <div class="row">
+    <div class="col-10">
+      <p class="lead">Total</p>
+    </div>
+    <div class="col-2">
+      <p class="lead">{{total}}€</p>
+    </div>
+  </div>
+  <p class="lead text-right">
+    <button class="btn btn-outline-secondary btn-lg" (click)="sendPurchase(items)" role="button">Order</button>
   </p>
 </div>
