@@ -8,6 +8,7 @@ import {PaintingPurchase} from "../../../models/paintingPurchase.model";
 import {Status} from "../../../models/enums/status.enum";
 import {User} from "../../../models/user.model";
 import {UserService} from "../../../services/user.service";
+import {Role} from "../../../models/role.model";
 
 @Component({
   selector: 'app-basket',
@@ -56,9 +57,7 @@ export class BasketComponent implements OnInit {
     //   user = localUser
     // }
 
-
-
-    console.log(user)
+    console.log(user);
 
     let panier: PaintingPurchase = {
       status: Status.PENDING,
