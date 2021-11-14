@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-tile',
@@ -12,10 +12,17 @@ export class TileComponent implements OnInit {
   @Input('price') price: number = 0;
   @Input('paintingType') paintingType: string = "";
   @Input('eventCategory') eventCategory: string = "";
+  @Input('item') item: any;
+
+  @Output('buy') buyEvent = new EventEmitter<any>();
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  emitBuyEvent(item: any){
+    this.buyEvent.emit(item);
   }
 
 }

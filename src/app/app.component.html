@@ -1,61 +1,65 @@
 <div>
-  <nav class="navbar navbar-expand-lg navbar-light p-3 container rounded my-4 sticky-top">
-    <a id="navTitle" class="navbar-brand" href="">Ophelie Petre</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav mr-auto d-flex justify-content-around w-100">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="">Home</a>
-        </li>
-        <li *ngIf="isloggedIn()" class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Picture
-          </a>
-          <div class="dropdown-menu shadow navDrop" aria-labelledby="navbarDropdown">
-            <!-- Galerie -->
-            <a class="dropdown-item" routerLink="picture/event">Events</a>
-            <a class="dropdown-item" routerLink="picture/travel">Travel</a>
-            <a class="dropdown-item" routerLink="picture/food">Food</a>
-            <a class="dropdown-item" routerLink="picture/portrait">Portraits</a>
-            <div class="dropdown-divider"></div>
-            <!-- Other -->
-            <a class="dropdown-item" routerLink="shop/picture">Shop</a>
-            <a class="dropdown-item" href="#">Reservation</a>
-          </div>
-        </li>
-        <li *ngIf="isloggedIn()" class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Painting
-          </a>
-          <div class="dropdown-menu shadow navDrop" aria-labelledby="navbarDropdown">
-            <!-- Galerie -->
-            <a class="dropdown-item" routerLink="painting/lines">Lines</a>
-            <a class="dropdown-item" routerLink="painting/abstract">Abstract</a>
-            <div class="dropdown-divider"></div>
-            <!-- Other -->
-            <a class="dropdown-item" routerLink="shop/painting">Shop</a>
-            <a class="dropdown-item" href="#">Quotation</a>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="about">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="contact">Contact</a>
-        </li>
-        <li class="nav-item" *ngIf="!loggedIn()">
-          <a class="nav-link" routerLink="login">Login</a>
-        </li>
-        <li class="nav-item" *ngIf="loggedIn()">
-          <a class="nav-link" (click)="logout()">Logout</a>
-        </li>
-        <li class="nav-item" *ngIf="!loggedIn()">
-          <a class="nav-link" routerLink="register">Register</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-  <router-outlet></router-outlet>
+  <div class="w-100 bg-white sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-light p-3 container my-4">
+      <a id="navTitle" class="navbar-brand" href="">Ophelie Petre</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto d-flex justify-content-around w-100">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="">Home</a>
+          </li>
+          <li *ngIf="isloggedIn()" class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Picture
+            </a>
+            <div class="dropdown-menu shadow navDrop" aria-labelledby="navbarDropdown">
+              <!-- Galerie -->
+              <a class="dropdown-item" routerLink="picture/event">Events</a>
+              <a class="dropdown-item" routerLink="picture/travel">Travel</a>
+              <a class="dropdown-item" routerLink="picture/food">Food</a>
+              <a class="dropdown-item" routerLink="picture/portrait">Portraits</a>
+              <div class="dropdown-divider"></div>
+              <!-- Other -->
+              <a class="dropdown-item" routerLink="shop/picture">Shop</a>
+              <a class="dropdown-item" href="#">Reservation</a>
+            </div>
+          </li>
+          <li *ngIf="isloggedIn()" class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Painting
+            </a>
+            <div class="dropdown-menu shadow navDrop" aria-labelledby="navbarDropdown">
+              <!-- Galerie -->
+              <a class="dropdown-item" routerLink="painting/lines">Lines</a>
+              <a class="dropdown-item" routerLink="painting/abstract">Abstract</a>
+              <div class="dropdown-divider"></div>
+              <!-- Other -->
+              <a class="dropdown-item" routerLink="shop/painting">Shop</a>
+              <a class="dropdown-item" href="#">Quotation</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="contact">Contact</a>
+          </li>
+          <li class="nav-item" *ngIf="!loggedIn()">
+            <a class="nav-link" routerLink="login">Login</a>
+          </li>
+          <li class="nav-item" *ngIf="loggedIn()">
+            <a class="nav-link" (click)="logout()">Logout</a>
+          </li>
+          <li class="nav-item" *ngIf="!loggedIn()">
+            <a class="nav-link" routerLink="register">Register</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <div>
+    <router-outlet></router-outlet>
+  </div>
 </div>

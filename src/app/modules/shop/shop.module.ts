@@ -6,6 +6,7 @@ import { ShopViewComponent } from './shop-view/shop-view.component';
 import { ShopPictureComponent } from './shop-picture/shop-picture.component';
 import { ShopPaintingComponent } from './shop-painting/shop-painting.component';
 import { TileComponent } from './tile/tile.component';
+import { BasketComponent } from './basket/basket.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { TileComponent } from './tile/tile.component';
     ShopViewComponent,
     ShopPictureComponent,
     ShopPaintingComponent,
-    TileComponent
+    TileComponent,
+    BasketComponent
   ],
   imports: [
     CommonModule,

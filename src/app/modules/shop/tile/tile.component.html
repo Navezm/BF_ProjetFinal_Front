@@ -5,6 +5,6 @@
     <p class="card-text">Description: {{description}}</p>
     <p class="card-text">Price: {{price}}€</p>
     <p class="card-text">Type: {{paintingType}}{{eventCategory}}</p>
-    <a href="#" class="btn btn-outline-secondary">Buy</a>
+    <button (click)="emitBuyEvent(item)" class="btn btn-outline-secondary">Buy</button>
   </div>
 </div>
