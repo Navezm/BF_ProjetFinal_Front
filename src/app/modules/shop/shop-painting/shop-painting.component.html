@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="col-sm-12 col-md-4" *ngFor="let painting of paintingList">
+    <app-tile
+      [name]="painting.name"
+      [src]="painting.src"
+      [description]="painting.description"
+      [price]="painting.price"
+      [paintingType]="painting.paintingType.name"
+    ></app-tile>
+  </div>
+</div>

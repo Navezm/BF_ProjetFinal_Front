@@ -15,4 +15,8 @@ export class PictureService extends CRUD<Picture>{
   ) {
     super(server, config);
   }
+
+  public getByAvailability() {
+    return this.server.get<Picture[]>(config.path + '/isAvailable');
+  }
 }

@@ -15,4 +15,8 @@ export class PaintingService extends CRUD<Painting>{
   ) {
     super(server, config);
   }
+
+  public getByAvailability(){
+    return this.server.get<Painting[]>(config.path + '/isAvailable');
+  }
 }

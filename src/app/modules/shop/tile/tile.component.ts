@@ -1,13 +1,11 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {PaintingType} from "../../../models/paintingType.model";
-import {EventCategory} from "../../../models/eventCategory.model";
 
 @Component({
-  selector: 'app-card',
-  templateUrl: './card.component.html',
-  styleUrls: ['./card.component.scss']
+  selector: 'app-tile',
+  templateUrl: './tile.component.html',
+  styleUrls: ['./tile.component.scss']
 })
-export class CardComponent implements OnInit {
+export class TileComponent implements OnInit {
   @Input('name') name: string = "";
   @Input('src') src: string = "";
   @Input('description') description: string = "";

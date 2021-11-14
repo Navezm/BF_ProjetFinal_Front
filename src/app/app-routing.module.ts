@@ -15,7 +15,9 @@ const routes: Routes = [
   { path: 'picture', loadChildren: () => import('./modules/picture/picture.module')
       .then(t => t.PictureModule) },
   { path: 'painting', loadChildren: () => import('./modules/painting/painting.module')
-      .then(t => t.PaintingModule)}
+      .then(t => t.PaintingModule)},
+  { path: 'shop', loadChildren: () => import('./modules/shop/shop.module')
+      .then(t => t.ShopModule)}
 ];
 
 @NgModule({

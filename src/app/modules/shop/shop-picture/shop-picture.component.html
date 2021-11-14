@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="col-sm-12 col-md-4" *ngFor="let picture of pictureList">
+    <app-tile
+      [name]="picture.name"
+      [src]="picture.src"
+      [description]="picture.description"
+      [price]="picture.price"
+      [eventCategory]="picture.eventCategory.name"
+    ></app-tile>
+  </div>
+</div>
