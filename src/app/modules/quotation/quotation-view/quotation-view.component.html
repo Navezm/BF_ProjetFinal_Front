@@ -1,14 +1,15 @@
 <script src="../../../components/register/register.component.ts"></script>
 <script src="../../shop/tile/tile.component.ts"></script>
 <div class="container">
-  <h1 class="text-center">Here you can make a painting quotation!</h1>
-  <div class="row">
+  <div id="textPaintingQuotation" class="w-100 my-4 d-flex align-items-center justify-content-center">
+    <h1 class="text-uppercase">Make a painting quotation!</h1>
+  </div>
+  <div class="row my-4">
     <div class="col-md-6 col-sm-12">
       <form (ngSubmit)="submit(quotationForm)" [formGroup]="quotationForm" class="bg-light p-4 rounded">
         <div class="form-group">
           <label>Format</label>
           <select class="form-control" [formControl]="formatCtl">
-            <option>Select an option...</option>
             <option *ngFor="let format of formatArray" value="{{format}}">{{format}}</option>
           </select>
           <small class="text-danger" *ngIf="formatCtl.hasError('required')">
@@ -18,7 +19,6 @@
         <div class="form-group">
           <label>Color Choice</label>
           <select class="form-control" [formControl]="colorCtl">
-            <option>Select an option...</option>
             <option *ngFor="let color of colorChoiceArray" value="{{color}}">{{color}}</option>
           </select>
           <small class="text-danger" *ngIf="colorCtl.hasError('required')">
@@ -28,7 +28,6 @@
         <div class="form-group">
           <label>Painting Type</label>
           <select class="form-control" [formControl]="paintingTypeCtl">
-            <option>Select an option...</option>
             <option *ngFor="let type of paintingTypeArray" value="{{type.id}}">{{type.name}}</option>
           </select>
           <small class="text-danger" *ngIf="paintingTypeCtl.hasError('required')">

@@ -1,5 +1,7 @@
 <script src="shop-picture.component.ts"></script>
 <div class="row w-100">
+  <div class="col-1">
+  </div>
   <div class="col-md-8 pl-5 row">
     <div class="col-sm-12 col-md-4" *ngFor="let picture of pictureList">
       <app-tile
@@ -13,7 +15,7 @@
       ></app-tile>
     </div>
   </div>
-  <div class="col-md-4">
+  <div class="col-md-3">
     <app-basket [items]="panier"></app-basket>
   </div>
 </div>
