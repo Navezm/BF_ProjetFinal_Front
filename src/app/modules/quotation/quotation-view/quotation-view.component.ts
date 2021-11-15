@@ -58,7 +58,7 @@ export class QuotationViewComponent implements OnInit {
     this.quotationForm = this.fb.group({
       colorChoice: this.colorCtl,
       format: this.formatCtl,
-      paintingType: this.paintingTypeCtl,
+      paintingTypeId: this.paintingTypeCtl,
       message: this.messageCtl
     })
   }
