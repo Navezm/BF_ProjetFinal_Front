@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="basket.component.scss">
 <script src="../../../services/picture-purchase.service.ts"></script>
 <div class="jumbotron basket py-3 mt-3">
   <h1 class="display-4">Basket</h1>
@@ -21,4 +22,7 @@
   <p class="lead text-right">
     <button class="btn btn-outline-secondary btn-lg" (click)="sendPurchase(items)" role="button">Order</button>
   </p>
+  <div class="w-100 text-center text-success" id="divSuccess">
+    <p id="pSuccess">Your order was successfully made!</p>
+  </div>
 </div>

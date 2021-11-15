@@ -45,28 +45,42 @@ export class BasketComponent implements OnInit {
   }
 
   sendPaintingPurchase(items: Painting[]){
-    let user: User = JSON.parse(<string>localStorage.getItem('user')) as User;
+    if(this.items.length > 0) {
+      let user: User = JSON.parse(<string>localStorage.getItem('user')) as User;
 
-    let panier: PaintingPurchase = {
-      status: Status.PENDING,
-      paintings: items,
-      user: user,
-      address: user.address
+      let panier: PaintingPurchase = {
+        status: Status.PENDING,
+        paintings: items,
+        user: user,
+        address: user.address
+      }
+
+      this.paintingPurchaseService.insert(panier).subscribe((data: PaintingPurchase) => console.log(data));
+      this.purchaseSuccessful();
     }
-
-    this.paintingPurchaseService.insert(panier).subscribe((data: PaintingPurchase) => console.log(data));
+    this.items = [];
   }
 
   sendPicturePurchase(items: Picture[]){
-    let user: User = JSON.parse(<string>localStorage.getItem('user')) as User;
+    if(this.items.length > 0) {
+      let user: User = JSON.parse(<string>localStorage.getItem('user')) as User;
 
-    let panier: PicturePurchase = {
-      status: Status.PENDING,
-      pictures: items,
-      user: user
+      let panier: PicturePurchase = {
+        status: Status.PENDING,
+        pictures: items,
+        user: user
+      }
+
+      this.picturePurchaseService.insert(panier).subscribe((data: PicturePurchase) => console.log(data));
+      this.purchaseSuccessful();
     }
+    this.items = [];
+  }
 
-    this.picturePurchaseService.insert(panier).subscribe((data: PicturePurchase) => console.log(data));
+  purchaseSuccessful(){
+    let divSuccess = document.getElementById("divSuccess");
+    // @ts-ignore
+    divSuccess.style.display = "block";
   }
 
 }
