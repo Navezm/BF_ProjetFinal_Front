@@ -11,5 +11,5 @@ export interface PaintingQuotation {
   format: Format,
   colorChoice: ColorChoice,
   message: string,
-  paintingType: PaintingType
+  paintingType: number
 }

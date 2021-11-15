@@ -1,0 +1,56 @@
+<script src="../../../components/register/register.component.ts"></script>
+<script src="../../shop/tile/tile.component.ts"></script>
+<div class="container">
+  <h1 class="text-center">Here you can make a painting quotation!</h1>
+  <div class="row">
+    <div class="col-md-6 col-sm-12">
+      <form (ngSubmit)="submit(quotationForm)" [formGroup]="quotationForm" class="bg-light p-4 rounded">
+        <div class="form-group">
+          <label>Format</label>
+          <select class="form-control" [formControl]="formatCtl">
+            <option>Select an option...</option>
+            <option *ngFor="let format of formatArray" value="{{format}}">{{format}}</option>
+          </select>
+          <small class="text-danger" *ngIf="formatCtl.hasError('required')">
+            required
+          </small>
+        </div>
+        <div class="form-group">
+          <label>Color Choice</label>
+          <select class="form-control" [formControl]="colorCtl">
+            <option>Select an option...</option>
+            <option *ngFor="let color of colorChoiceArray" value="{{color}}">{{color}}</option>
+          </select>
+          <small class="text-danger" *ngIf="colorCtl.hasError('required')">
+            required
+          </small>
+        </div>
+        <div class="form-group">
+          <label>Painting Type</label>
+          <select class="form-control" [formControl]="paintingTypeCtl">
+            <option>Select an option...</option>
+            <option *ngFor="let type of paintingTypeArray" value="{{type.id}}">{{type.name}}</option>
+          </select>
+          <small class="text-danger" *ngIf="paintingTypeCtl.hasError('required')">
+            required
+          </small>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea class="form-control" id="message" placeholder="Your message" [formControl]="messageCtl"></textarea>
+          <small class="text-danger" *ngIf="messageCtl.hasError('required')">
+            required
+          </small>
+        </div>
+        <button type="submit" class="btn btn-outline-secondary" [disabled]="quotationForm.invalid">Submit</button>
+      </form>
+    </div>
+    <div class="col-md-6 col-sm-12 text-justify">
+      <div class="mt-3">
+        <p>Here you can make a quotation for me to create a painting the way you want.</p>
+        <p>There's a set of colors you can choose from as well as a type of painting. Plus you can specify in the message if you desire something special.</p>
+        <p>I'll keep touch with you by email for a confirmation of the quotation and if I have additional question about you demand.</p>
+      </div>
+    </div>
+  </div>
+</div>
