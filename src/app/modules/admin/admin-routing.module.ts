@@ -8,9 +8,11 @@ import {PaintingQuotationListComponent} from "./painting/painting-quotation-list
 import {AddPictureComponent} from "./picture/add-picture/add-picture.component";
 import {PictureListComponent} from "./picture/picture-list/picture-list.component";
 import {PicturePurchaseListComponent} from "./picture/picture-purchase-list/picture-purchase-list.component";
+import {UserDetailsComponent} from "./admin/user-details/user-details.component";
 
 const routes: Routes = [
   { path: 'user', component: UserListComponent },
+  { path: 'user/:id', component: UserDetailsComponent },
   { path: 'painting', children: [
       { path: 'add', component: AddPaintingComponent },
       { path: 'list', component: PaintingListComponent },
