@@ -12,6 +12,8 @@ import { PaintingQuotationListComponent } from './painting/painting-quotation-li
 import { UserListComponent } from './admin/user-list/user-list.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import { UserDetailsComponent } from './admin/user-details/user-details.component';
+import { PaintingDetailsComponent } from './painting/painting-details/painting-details.component';
+import { PictureDetailsComponent } from './picture/picture-details/picture-details.component';
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import { UserDetailsComponent } from './admin/user-details/user-details.componen
     PaintingListComponent,
     PaintingQuotationListComponent,
     UserListComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+    PaintingDetailsComponent,
+    PictureDetailsComponent
   ],
   imports: [
     CommonModule,

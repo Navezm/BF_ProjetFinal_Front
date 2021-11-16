@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="jumbotron">
+    <div class="row">
+      <div class="col-8">
+        <img class="w-100" src="../../../../../assets{{painting.src}}" alt="">
+      </div>
+      <div class="col-4">
+        <h1 class="display-4">Painting name: {{painting.name}}</h1>
+        <p class="lead">Description: {{painting.description}}</p>
+        <p class="lead">Price: {{painting.price}}</p>
+        <p class="lead">Painting type: {{painting.paintingType.name}}</p>
+        <p class="lead">Availability: {{painting.isAvailable.valueOf()}}</p>
+      </div>
+    </div>
+    <hr class="my-4">
+    <a class="btn btn-lg btn-outline-info">Edit</a>
+    <a class="btn btn-lg btn-outline-danger ml-3">Delete</a>
+  </div>
+</div>

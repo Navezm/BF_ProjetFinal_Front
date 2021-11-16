@@ -9,6 +9,8 @@ import {AddPictureComponent} from "./picture/add-picture/add-picture.component";
 import {PictureListComponent} from "./picture/picture-list/picture-list.component";
 import {PicturePurchaseListComponent} from "./picture/picture-purchase-list/picture-purchase-list.component";
 import {UserDetailsComponent} from "./admin/user-details/user-details.component";
+import {PaintingDetailsComponent} from "./painting/painting-details/painting-details.component";
+import {PictureDetailsComponent} from "./picture/picture-details/picture-details.component";
 
 const routes: Routes = [
   { path: 'user', component: UserListComponent },
@@ -17,12 +19,14 @@ const routes: Routes = [
       { path: 'add', component: AddPaintingComponent },
       { path: 'list', component: PaintingListComponent },
       { path: 'purchase', component: PaintingPurchaseListComponent },
-      { path: 'quotation', component: PaintingQuotationListComponent }
+      { path: 'quotation', component: PaintingQuotationListComponent },
+      { path: ':id', component: PaintingDetailsComponent }
     ] },
   { path: 'picture', children: [
       { path: 'add', component: AddPictureComponent },
       { path: 'list', component: PictureListComponent },
-      { path: 'purchase', component: PicturePurchaseListComponent }
+      { path: 'purchase', component: PicturePurchaseListComponent },
+      { path: ':id', component: PictureDetailsComponent }
     ] }
 ];
 

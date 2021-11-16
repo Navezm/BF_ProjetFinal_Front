@@ -1,0 +1,20 @@
+<script src="picture-details.component.ts"></script>
+<div class="container">
+  <div class="jumbotron">
+    <div class="row">
+      <div class="col-8">
+        <img class="w-100" src="../../../../../assets{{picture.src}}" alt="">
+      </div>
+      <div class="col-4">
+        <h1 class="display-4">Picture name: {{picture.name}}</h1>
+        <p class="lead">Description: {{picture.description}}</p>
+        <p class="lead">Price: {{picture.price}}</p>
+        <p class="lead">Picture type: {{picture.eventCategory.name}}</p>
+        <p class="lead">Availability: {{picture.isAvailable.valueOf()}}</p>
+      </div>
+    </div>
+    <hr class="my-4">
+    <a class="btn btn-lg btn-outline-info">Edit</a>
+    <a class="btn btn-lg btn-outline-danger ml-3">Delete</a>
+  </div>
+</div>
