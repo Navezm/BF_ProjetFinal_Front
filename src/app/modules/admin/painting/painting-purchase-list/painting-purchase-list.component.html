@@ -1,1 +1,25 @@
-<p>painting-purchase-list works!</p>
+<div class="container">
+  <h1 class="text-center">Painting Purchase List</h1>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Status</th>
+      <th scope="col">Username</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let painting of paintingPurchaseList">
+      <th scope="row">{{painting.id}}</th>
+      <th scope="row">{{painting.status}}</th>
+      <th scope="row">{{painting.user.username}}</th>
+      <td><a class="btn btn-outline-info">Details</a></td>
+      <td><a class="btn btn-outline-success">Edit</a></td>
+      <td><a class="btn btn-outline-danger">Delete</a></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

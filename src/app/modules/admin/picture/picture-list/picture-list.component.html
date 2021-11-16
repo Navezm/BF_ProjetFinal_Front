@@ -1,1 +1,25 @@
-<p>picture-list works!</p>
+<div class="container">
+  <h1 class="text-center">Photography List</h1>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Preview</th>
+      <th scope="col">Name</th>
+      <th scope="col">Type</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let picture of pictureList">
+      <th scope="row">{{picture.id}}</th>
+      <th scope="row"><img class="imgAdminPictureList" src="../../../../../assets{{picture.src}}"></th>
+      <th scope="row">{{picture.name}}</th>
+      <th scope="row">{{picture.eventCategory.name}}</th>
+      <td><a class="btn btn-outline-info">Edit</a></td>
+      <td><a class="btn btn-outline-danger">Delete</a></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

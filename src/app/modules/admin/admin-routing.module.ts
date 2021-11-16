@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {AdminModule} from "./admin.module";
-import {AdminViewComponent} from "./admin/admin-view/admin-view.component";
 import {UserListComponent} from "./admin/user-list/user-list.component";
 import {AddPaintingComponent} from "./painting/add-painting/add-painting.component";
 import {PaintingListComponent} from "./painting/painting-list/painting-list.component";

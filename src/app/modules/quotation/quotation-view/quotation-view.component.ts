@@ -65,9 +65,7 @@ export class QuotationViewComponent implements OnInit {
 
   ngOnInit(): void {
     this.paintingTypeService.getAll()
-      .subscribe((data) =>
-        data.forEach((x) => this.paintingTypeArray.push(x))
-      );
+      .subscribe((data) => this.paintingTypeArray = data);
   }
 
   submit(quotationForm: FormGroup){
