@@ -18,6 +18,10 @@ export class AppComponent {
     return this.authService.getloggedIn();
   }
 
+  public isAdmin() {
+    return this.authService.isAdmin();
+  }
+
   public loggedIn() {
     return this.authService.getloggedIn();
   }

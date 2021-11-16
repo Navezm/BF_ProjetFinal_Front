@@ -51,6 +51,25 @@
           <li class="nav-item" *ngIf="!loggedIn()">
             <a class="nav-link" routerLink="login">Login</a>
           </li>
+          <li *ngIf="isAdmin()" class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Admin
+            </a>
+            <div class="dropdown-menu shadow navDrop" aria-labelledby="navbarDropdown">
+              <!-- Galerie -->
+              <a class="dropdown-item" routerLink="admin/user">User</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" routerLink="admin/painting/add">Add Painting</a>
+              <a class="dropdown-item" routerLink="admin/painting/list">Painting List</a>
+              <a class="dropdown-item" routerLink="admin/painting/purchase">Painting Purchase</a>
+              <a class="dropdown-item" routerLink="admin/painting/quotation">Painting Order</a>
+              <!-- Other -->
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" routerLink="admin/picture/add">Add Photography</a>
+              <a class="dropdown-item" routerLink="admin/picture/list">Photography List</a>
+              <a class="dropdown-item" routerLink="admin/picture/purchase">Photography Purchase</a>
+            </div>
+          </li>
           <li class="nav-item" *ngIf="loggedIn()">
             <a class="nav-link" (click)="logout()">Logout</a>
           </li>
