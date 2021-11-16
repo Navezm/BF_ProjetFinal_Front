@@ -11,11 +11,12 @@
             <a class="nav-link" routerLink="">Home</a>
           </li>
           <li *ngIf="isloggedIn()" class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Picture
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Photography
             </a>
             <div class="dropdown-menu shadow navDrop" aria-labelledby="navbarDropdown">
               <!-- Galerie -->
+              <a class="dropdown-item" routerLink="picture/all">All</a>
               <a class="dropdown-item" routerLink="picture/event">Events</a>
               <a class="dropdown-item" routerLink="picture/travel">Travel</a>
               <a class="dropdown-item" routerLink="picture/food">Food</a>
@@ -23,21 +24,22 @@
               <div class="dropdown-divider"></div>
               <!-- Other -->
               <a class="dropdown-item" routerLink="shop/picture">Shop</a>
-              <a class="dropdown-item" href="#">Reservation</a>
+<!--              <a class="dropdown-item" href="#">Reservation</a>-->
             </div>
           </li>
           <li *ngIf="isloggedIn()" class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Painting
             </a>
             <div class="dropdown-menu shadow navDrop" aria-labelledby="navbarDropdown">
               <!-- Galerie -->
+              <a class="dropdown-item" routerLink="painting/all">All</a>
               <a class="dropdown-item" routerLink="painting/lines">Lines</a>
               <a class="dropdown-item" routerLink="painting/abstract">Abstract</a>
               <div class="dropdown-divider"></div>
               <!-- Other -->
               <a class="dropdown-item" routerLink="shop/painting">Shop</a>
-              <a class="dropdown-item" routerLink="quotation">Quotation</a>
+              <a class="dropdown-item" routerLink="quotation">Order</a>
             </div>
           </li>
           <li class="nav-item">

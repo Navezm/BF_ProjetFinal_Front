@@ -19,7 +19,9 @@ const routes: Routes = [
   { path: 'shop', loadChildren: () => import('./modules/shop/shop.module')
       .then(t => t.ShopModule) },
   { path: 'quotation', loadChildren: () => import('./modules/quotation/quotation.module')
-      .then(t => t.QuotationModule) }
+      .then(t => t.QuotationModule) },
+  { path: 'admin', loadChildren: () => import('./modules/admin/admin.module')
+      .then(t => t.AdminModule) }
 ];
 
 @NgModule({

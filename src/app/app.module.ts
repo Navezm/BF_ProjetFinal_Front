@@ -13,10 +13,13 @@ import { RegisterComponent } from './components/register/register.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {JwtModule} from "@auth0/angular-jwt";
 import {HttpClientModule} from "@angular/common/http";
+import {CrudConfig} from "./services/crud";
 
 export function tokenGetter() {
   return localStorage.getItem('token');
 }
+
+export const PAINTING_URI = "const.painting";
 
 @NgModule({
   declarations: [
@@ -41,7 +44,9 @@ export function tokenGetter() {
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: PAINTING_URI, useValue: {path: "/paintingType"} as CrudConfig }
+  ],
   exports: [
   ],
   bootstrap: [AppComponent]
