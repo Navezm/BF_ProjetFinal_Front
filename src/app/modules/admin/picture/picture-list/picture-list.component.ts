@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Picture} from "../../../../models/picture.model";
 import {PictureService} from "../../../../services/picture.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-picture-list',
@@ -11,7 +12,8 @@ export class PictureListComponent implements OnInit {
   pictureList!: Picture[];
 
   constructor(
-    private pictureService: PictureService
+    private pictureService: PictureService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -23,5 +25,10 @@ export class PictureListComponent implements OnInit {
       .subscribe((pictures: Picture[]) => {
         this.pictureList = pictures;
       })
+  }
+
+  delete(id: number){
+    this.pictureService.delete(id).subscribe();
+    this.router.navigateByUrl("admin/picture/list");
   }
 }

@@ -17,8 +17,8 @@
       <th scope="row"><img class="imgAdminPictureList" src="../../../../../assets{{picture.src}}"></th>
       <th scope="row">{{picture.name}}</th>
       <th scope="row">{{picture.eventCategory.name}}</th>
-      <td><a href="admin/picture/{{picture.id}}" class="btn btn-outline-info">Edit</a></td>
-      <td><a class="btn btn-outline-danger">Delete</a></td>
+      <td><a href="admin/picture/{{picture.id}}" class="btn btn-outline-info">Details</a></td>
+      <td><a class="btn btn-outline-danger" (click)="delete(picture.id)">Delete</a></td>
     </tr>
     </tbody>
   </table>

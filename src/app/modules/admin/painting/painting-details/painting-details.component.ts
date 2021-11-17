@@ -21,4 +21,9 @@ export class PaintingDetailsComponent implements OnInit {
       .subscribe((painting) => this.painting = painting);
   }
 
+  delete(id: number){
+    this.paintingService.delete(id).subscribe();
+    this.router.navigateByUrl("admin/painting/list");
+  }
+
 }

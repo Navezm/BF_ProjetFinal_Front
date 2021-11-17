@@ -20,4 +20,9 @@ export class PictureDetailsComponent implements OnInit {
     this.pictureService.getOneById(Number(this.router.url.charAt(this.router.url.length - 1)))
       .subscribe((picture) => this.picture = picture);
   }
+
+  delete(id: number){
+    this.pictureService.delete(id).subscribe();
+    this.router.navigateByUrl("admin/picture/list");
+  }
 }
