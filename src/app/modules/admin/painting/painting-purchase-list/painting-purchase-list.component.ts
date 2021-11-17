@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {PaintingPurchaseService} from "../../../../services/painting-purchase.service";
 import {PaintingPurchase} from "../../../../models/paintingPurchase.model";
+import {UtilService} from "../../../../services/util.service";
 
 @Component({
   selector: 'app-painting-purchase-list',
@@ -11,7 +12,8 @@ export class PaintingPurchaseListComponent implements OnInit {
   paintingPurchaseList!: PaintingPurchase[];
 
   constructor(
-    private paintingPurchaseService: PaintingPurchaseService
+    private paintingPurchaseService: PaintingPurchaseService,
+    private utilService: UtilService
   ) { }
 
   ngOnInit(): void {
@@ -19,4 +21,8 @@ export class PaintingPurchaseListComponent implements OnInit {
       .subscribe((data) => this.paintingPurchaseList = data);
   }
 
+  delete(id: any){
+    this.paintingPurchaseService.delete(id).subscribe();
+    this.utilService.reloadComponent();
+  }
 }

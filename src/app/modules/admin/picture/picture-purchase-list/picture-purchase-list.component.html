@@ -18,7 +18,7 @@
       <th scope="row">{{picture.user.username}}</th>
       <td><a class="btn btn-outline-info">Details</a></td>
       <td><a class="btn btn-outline-success">Edit</a></td>
-      <td><a class="btn btn-outline-danger">Delete</a></td>
+      <td><a class="btn btn-outline-danger" (click)="delete(picture.id)">Delete</a></td>
     </tr>
     </tbody>
   </table>

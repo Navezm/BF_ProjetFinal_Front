@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Painting} from "../../../../models/painting.model";
 import {PaintingService} from "../../../../services/painting.service";
 import {Router} from "@angular/router";
+import {UtilService} from "../../../../services/util.service";
 
 @Component({
   selector: 'app-painting-list',
@@ -13,7 +14,7 @@ export class PaintingListComponent implements OnInit {
 
   constructor(
     private paintingService: PaintingService,
-    private router: Router
+    private utilService: UtilService
   ) { }
 
   ngOnInit(): void {
@@ -27,6 +28,6 @@ export class PaintingListComponent implements OnInit {
 
   delete(id: number){
     this.paintingService.delete(id).subscribe((data) => console.log(data));
-    this.router.navigateByUrl("admin/painting/list");
+    this.utilService.reloadComponent();
   }
 }
