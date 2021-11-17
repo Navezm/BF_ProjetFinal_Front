@@ -14,6 +14,8 @@ import {ReactiveFormsModule} from "@angular/forms";
 import { UserDetailsComponent } from './admin/user-details/user-details.component';
 import { PaintingDetailsComponent } from './painting/painting-details/painting-details.component';
 import { PictureDetailsComponent } from './picture/picture-details/picture-details.component';
+import { PaintingPurchaseDetailsComponent } from './painting/painting-purchase-details/painting-purchase-details.component';
+import { PicturePurchaseDetailsComponent } from './picture/picture-purchase-details/picture-purchase-details.component';
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import { PictureDetailsComponent } from './picture/picture-details/picture-detai
     UserListComponent,
     UserDetailsComponent,
     PaintingDetailsComponent,
-    PictureDetailsComponent
+    PictureDetailsComponent,
+    PaintingPurchaseDetailsComponent,
+    PicturePurchaseDetailsComponent
   ],
   imports: [
     CommonModule,

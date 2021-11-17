@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="jumbotron">
+    <h1 class="display-4">STATUS: {{picturePurchase.status}}</h1>
+    <p class="lead">User : {{picturePurchase.user.username}}</p>
+    <p class="lead">Email : {{picturePurchase.user.email}}</p>
+    <hr class="my-4">
+    <div *ngFor="let picture of picturePurchase.pictures" class="row mb-3">
+      <div class="col-2">
+        <img class="imgAdminPaintingList" src="../../../../../assets{{picture.src}}" alt="">
+      </div>
+      <div class="col-10">
+        <p>Name: {{picture.name}}</p>
+        <p>Category: {{picture.eventCategory.name}}</p>
+      </div>
+    </div>
+    <hr class="my-4">
+    <p class="lead">
+      <a class="btn btn-outline-success btn-lg" href="#" role="button">Edit</a>
+      <a class="btn btn-outline-danger btn-lg ml-2" (click)="delete(picturePurchase.id)" role="button">Delete</a>
+    </p>
+  </div>
+</div>

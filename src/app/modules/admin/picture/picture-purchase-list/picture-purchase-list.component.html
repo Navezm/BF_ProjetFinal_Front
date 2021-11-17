@@ -16,7 +16,7 @@
       <th scope="row">{{picture.id}}</th>
       <th scope="row">{{picture.status}}</th>
       <th scope="row">{{picture.user.username}}</th>
-      <td><a class="btn btn-outline-info">Details</a></td>
+      <td><a class="btn btn-outline-info" href="admin/picture/purchase/{{picture.id}}">Details</a></td>
       <td><a class="btn btn-outline-success">Edit</a></td>
       <td><a class="btn btn-outline-danger" (click)="delete(picture.id)">Delete</a></td>
     </tr>

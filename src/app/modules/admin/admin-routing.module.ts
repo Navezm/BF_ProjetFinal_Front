@@ -11,6 +11,8 @@ import {PicturePurchaseListComponent} from "./picture/picture-purchase-list/pict
 import {UserDetailsComponent} from "./admin/user-details/user-details.component";
 import {PaintingDetailsComponent} from "./painting/painting-details/painting-details.component";
 import {PictureDetailsComponent} from "./picture/picture-details/picture-details.component";
+import {PaintingPurchaseDetailsComponent} from "./painting/painting-purchase-details/painting-purchase-details.component";
+import {PicturePurchaseDetailsComponent} from "./picture/picture-purchase-details/picture-purchase-details.component";
 
 const routes: Routes = [
   { path: 'user', component: UserListComponent },
@@ -20,13 +22,15 @@ const routes: Routes = [
       { path: 'list', component: PaintingListComponent },
       { path: 'purchase', component: PaintingPurchaseListComponent },
       { path: 'quotation', component: PaintingQuotationListComponent },
-      { path: ':id', component: PaintingDetailsComponent }
+      { path: ':id', component: PaintingDetailsComponent },
+      { path: 'purchase/:id', component: PaintingPurchaseDetailsComponent }
     ] },
   { path: 'picture', children: [
       { path: 'add', component: AddPictureComponent },
       { path: 'list', component: PictureListComponent },
       { path: 'purchase', component: PicturePurchaseListComponent },
-      { path: ':id', component: PictureDetailsComponent }
+      { path: ':id', component: PictureDetailsComponent },
+      { path: 'purchase/:id', component: PicturePurchaseDetailsComponent }
     ] }
 ];
 
