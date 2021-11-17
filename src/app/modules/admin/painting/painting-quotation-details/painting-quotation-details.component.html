@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="jumbotron">
+    <h1 class="display-4">STATUS: {{paintingQuotation.status}}</h1>
+    <p class="lead">User : {{paintingQuotation.user.username}}</p>
+    <p class="lead">Address : {{paintingQuotation.user.address.number}} {{paintingQuotation.user.address.street}}, {{paintingQuotation.user.address.postCode}} {{paintingQuotation.user.address.city}}</p>
+    <hr class="my-4">
+    <h3>Details:</h3>
+      <p class="lead">Color Choice: {{paintingQuotation.colorChoice}}</p>
+      <p class="lead">Format: {{paintingQuotation.format}}</p>
+      <p class="lead">Message: {{paintingQuotation.message}}</p>
+      <p class="lead">Painting Type: {{paintingQuotation.paintingTypeId == 1 ? 'Lines' : 'Abstract'}}</p>
+    <hr class="my-4">
+    <p class="lead">
+      <a class="btn btn-outline-success btn-lg" href="#" role="button">Edit</a>
+      <a class="btn btn-outline-danger btn-lg ml-2" (click)="delete(paintingQuotation.id)" role="button">Delete</a>
+    </p>
+  </div>
+</div>

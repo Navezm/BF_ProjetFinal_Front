@@ -13,6 +13,7 @@ import {PaintingDetailsComponent} from "./painting/painting-details/painting-det
 import {PictureDetailsComponent} from "./picture/picture-details/picture-details.component";
 import {PaintingPurchaseDetailsComponent} from "./painting/painting-purchase-details/painting-purchase-details.component";
 import {PicturePurchaseDetailsComponent} from "./picture/picture-purchase-details/picture-purchase-details.component";
+import {PaintingQuotationDetailsComponent} from "./painting/painting-quotation-details/painting-quotation-details.component";
 
 const routes: Routes = [
   { path: 'user', component: UserListComponent },
@@ -23,7 +24,8 @@ const routes: Routes = [
       { path: 'purchase', component: PaintingPurchaseListComponent },
       { path: 'quotation', component: PaintingQuotationListComponent },
       { path: ':id', component: PaintingDetailsComponent },
-      { path: 'purchase/:id', component: PaintingPurchaseDetailsComponent }
+      { path: 'purchase/:id', component: PaintingPurchaseDetailsComponent },
+      { path: 'quotation/:id', component: PaintingQuotationDetailsComponent }
     ] },
   { path: 'picture', children: [
       { path: 'add', component: AddPictureComponent },

@@ -16,6 +16,7 @@ import { PaintingDetailsComponent } from './painting/painting-details/painting-d
 import { PictureDetailsComponent } from './picture/picture-details/picture-details.component';
 import { PaintingPurchaseDetailsComponent } from './painting/painting-purchase-details/painting-purchase-details.component';
 import { PicturePurchaseDetailsComponent } from './picture/picture-purchase-details/picture-purchase-details.component';
+import { PaintingQuotationDetailsComponent } from './painting/painting-quotation-details/painting-quotation-details.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { PicturePurchaseDetailsComponent } from './picture/picture-purchase-deta
     PaintingDetailsComponent,
     PictureDetailsComponent,
     PaintingPurchaseDetailsComponent,
-    PicturePurchaseDetailsComponent
+    PicturePurchaseDetailsComponent,
+    PaintingQuotationDetailsComponent
   ],
   imports: [
     CommonModule,
