@@ -1,0 +1,38 @@
+<div class="container">
+  <h1>Here you can edit your painting</h1>
+  <div class="p-3 bg-light rounded my-3">
+    <form>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" aria-describedby="name" value="{{painting.name}}">
+        <small class="text-danger" *ngIf="nameCtl.hasError('required')">
+          required
+        </small>
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input type="text" class="form-control" id="description" value="{{painting.description}}">
+        <small class="text-danger" *ngIf="descriptionCtl.hasError('required')">
+          required
+        </small>
+      </div>
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input type="number" class="form-control" id="price" value="{{painting.price}}">
+        <small class="text-danger" *ngIf="priceCtl.hasError('required')">
+          required
+        </small>
+      </div>
+      <div class="form-group">
+        <label>Painting Type</label>
+        <select class="form-control" [formControl]="paintingTypeCtl">
+          <option *ngFor="let type of paintingTypeArray" value="{{type.id}}">{{type.name}}</option>
+        </select>
+        <small class="text-danger" *ngIf="paintingTypeCtl.hasError('required')">
+          required
+        </small>
+      </div>
+      <button [disabled]="updatePaintingForm.invalid" type="submit" class="btn btn-outline-secondary">Submit</button>
+    </form>
+  </div>
+</div>

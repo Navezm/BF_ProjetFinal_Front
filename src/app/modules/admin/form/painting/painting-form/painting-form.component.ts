@@ -1,35 +1,38 @@
 import { Component, OnInit } from '@angular/core';
-import {PaintingTypeService} from "../../../../services/painting-type.service";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {PaintingService} from "../../../../services/painting.service";
+import {PaintingService} from "../../../../../services/painting.service";
+import {PaintingTypeService} from "../../../../../services/painting-type.service";
+import {Painting} from "../../../../../models/painting.model";
+import {Router} from "@angular/router";
 
 @Component({
-  selector: 'app-add-painting',
-  templateUrl: './add-painting.component.html',
-  styleUrls: ['./add-painting.component.scss']
+  selector: 'app-painting-form',
+  templateUrl: './painting-form.component.html',
+  styleUrls: ['./painting-form.component.scss']
 })
-export class AddPaintingComponent implements OnInit {
+export class PaintingFormComponent implements OnInit {
+  id!: number;
+  painting!: Painting;
   paintingTypeArray: any[] = [];
 
-  addPaintingForm: FormGroup;
+  updatePaintingForm: FormGroup;
   nameCtl: FormControl;
   descriptionCtl: FormControl;
   priceCtl: FormControl;
   paintingTypeCtl: FormControl;
-  paintingCtl: FormControl;
 
   constructor(
-    private paintingTypeService: PaintingTypeService,
     private paintingService: PaintingService,
-    private fb: FormBuilder
+    private paintingTypeService: PaintingTypeService,
+    private fb: FormBuilder,
+    private router: Router
   ) {
     this.nameCtl = this.fb.control(null, [Validators.required]);
     this.descriptionCtl = this.fb.control(null, [Validators.required]);
     this.priceCtl = this.fb.control(null, [Validators.required]);
     this.paintingTypeCtl = this.fb.control(null, [Validators.required]);
-    this.paintingCtl = this.fb.control(null, [Validators.required]);
 
-    this.addPaintingForm = this.fb.group({
+    this.updatePaintingForm = this.fb.group({
       name: this.nameCtl,
       description: this.descriptionCtl,
       price: this.priceCtl,
@@ -40,6 +43,15 @@ export class AddPaintingComponent implements OnInit {
   ngOnInit(): void {
     this.paintingTypeService.getAll()
       .subscribe((data) => this.paintingTypeArray = data);
+
+    this.id = Number(this.router.url.charAt(this.router.url.length - 1));
+
+    this.paintingService.getOneById(this.id)
+      .subscribe((data) => this.painting = data);
+  }
+
+  submit(){
+
   }
 
 }

@@ -9,6 +9,7 @@
       <th scope="col">Type</th>
       <th scope="col"></th>
       <th scope="col"></th>
+      <th scope="col"></th>
     </tr>
     </thead>
     <tbody>
@@ -18,6 +19,7 @@
       <th scope="row">{{painting.name}}</th>
       <th scope="row">{{painting.paintingType.name}}</th>
       <td><a href="admin/painting/{{painting.id}}" class="btn btn-outline-info">Details</a></td>
+      <td><a href="admin/painting/edit/{{painting.id}}" class="btn btn-outline-success">Edit</a></td>
       <td><a class="btn btn-outline-danger" (click)="delete(painting.id)">Delete</a></td>
     </tr>
     </tbody>
