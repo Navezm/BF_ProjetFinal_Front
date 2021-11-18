@@ -30,7 +30,19 @@ export class AuthService {
           this.isLoggedIn = true;
         }
         return this.isLoggedIn;
-      }))
+      }));
+  }
+
+  public register(user: User) {
+    return this.server.post<User>('/register', user)
+      .pipe(map((user: User) => {
+        if(user.token) {
+          localStorage.setItem('token', user.token.replace('Bearer ', ''));
+          localStorage.setItem('user', JSON.stringify(user));
+          this.isLoggedIn = true;
+        }
+        return this.isLoggedIn;
+      }));
   }
 
   public logout() {
@@ -40,11 +52,11 @@ export class AuthService {
     this.router.navigate(['login']);
   }
 
-  public isCurrentUser(user: User) {
-    const loggedUser = JSON.parse(<string>localStorage.getItem('user')) as User;
-
-    return user.id == loggedUser.id;
-  }
+  // public isCurrentUser(user: User) {
+  //   const loggedUser = JSON.parse(<string>localStorage.getItem('user')) as User;
+  //
+  //   return user.id == loggedUser.id;
+  // }
 
   private checkAuthorization(type: string) {
     const user = JSON.parse(<string>localStorage.getItem('user')) as User;
@@ -79,3 +91,4 @@ export class AuthService {
     return true;
   }
 }
+
