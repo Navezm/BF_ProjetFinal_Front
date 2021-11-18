@@ -52,12 +52,6 @@ export class AuthService {
     this.router.navigate(['login']);
   }
 
-  // public isCurrentUser(user: User) {
-  //   const loggedUser = JSON.parse(<string>localStorage.getItem('user')) as User;
-  //
-  //   return user.id == loggedUser.id;
-  // }
-
   private checkAuthorization(type: string) {
     const user = JSON.parse(<string>localStorage.getItem('user')) as User;
 

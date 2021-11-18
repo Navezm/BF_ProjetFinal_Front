@@ -6,6 +6,7 @@
       <h1 class="text-uppercase">Make an Order!</h1>
     </div>
   </div>
+
   <div class="row my-4">
     <div class="col-md-6 col-sm-12">
       <form (ngSubmit)="submit(quotationForm)" [formGroup]="quotationForm" class="bg-light p-4 rounded">
@@ -44,6 +45,9 @@
           </small>
         </div>
         <button type="submit" class="btn btn-outline-secondary" [disabled]="quotationForm.invalid">Submit</button>
+      <div class="w-100 text-center text-success mt-3" id="divOrderDone">
+        <p id="pOrderDone">Your order was successfully made!</p>
+      </div>
       </form>
     </div>
     <div class="col-md-6 col-sm-12 text-justify">
