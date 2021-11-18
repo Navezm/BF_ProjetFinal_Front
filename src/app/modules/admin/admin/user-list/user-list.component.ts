@@ -10,6 +10,8 @@ import {UtilService} from "../../../../services/util.service";
 })
 export class UserListComponent implements OnInit {
   userList!: User[];
+  loggedUser = JSON.parse(<string>localStorage.getItem('user')) as User;
+  id = this.loggedUser.id;
 
   constructor(
     private userService: UserService,

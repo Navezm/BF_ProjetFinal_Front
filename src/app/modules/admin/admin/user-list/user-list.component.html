@@ -18,7 +18,7 @@
       <td>{{user.email}}</td>
       <td>{{user.group.name}}</td>
       <td><a href="admin/user/{{user.id}}" class="btn btn-outline-info">Details</a></td>
-      <td><a class="btn btn-outline-danger" (click)="delete(user.id)">Delete</a></td>
+      <td *ngIf="user.id != id"><a class="btn btn-outline-danger" (click)="delete(user.id)">Delete</a></td>
     </tr>
     </tbody>
   </table>
