@@ -13,9 +13,9 @@
     </thead>
     <tbody>
     <tr *ngFor="let picture of picturePurchaseList">
-      <th scope="row">{{picture.id}}</th>
-      <th scope="row">{{picture.status}}</th>
-      <th scope="row">{{picture.user.username}}</th>
+      <td>{{picture.id}}</td>
+      <td>{{picture.status}}</td>
+      <td>{{picture.user.username}}</td>
       <td><a class="btn btn-outline-info" href="admin/picture/purchase/{{picture.id}}">Details</a></td>
       <td><a class="btn btn-outline-success" href="admin/picture/purchase/edit/{{picture.id}}">Edit</a></td>
       <td><a class="btn btn-outline-danger" (click)="delete(picture.id)">Delete</a></td>

@@ -13,9 +13,9 @@
     </thead>
     <tbody>
     <tr *ngFor="let painting of paintingPurchaseList">
-      <th scope="row">{{painting.id}}</th>
-      <th scope="row">{{painting.status}}</th>
-      <th scope="row">{{painting.user.username}}</th>
+      <td>{{painting.id}}</td>
+      <td>{{painting.status}}</td>
+      <td>{{painting.user.username}}</td>
       <td><a class="btn btn-outline-info" href="admin/painting/purchase/{{painting.id}}">Details</a></td>
       <td><a class="btn btn-outline-success" href="admin/painting/purchase/edit/{{painting.id}}">Edit</a></td>
       <td><a class="btn btn-outline-danger" (click)="delete(painting.id)">Delete</a></td>

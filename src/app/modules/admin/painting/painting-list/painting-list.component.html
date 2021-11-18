@@ -14,10 +14,10 @@
     </thead>
     <tbody>
     <tr *ngFor="let painting of paintingList">
-      <th scope="row">{{painting.id}}</th>
-      <th scope="row"><img class="imgAdminPaintingList" src="../../../../../assets{{painting.src}}"></th>
-      <th scope="row">{{painting.name}}</th>
-      <th scope="row">{{painting.paintingType.name}}</th>
+      <td>{{painting.id}}</td>
+      <td><img class="imgAdminPaintingList" src="../../../../../assets{{painting.src}}"></td>
+      <td>{{painting.name}}</td>
+      <td>{{painting.paintingType.name}}</td>
       <td><a href="admin/painting/{{painting.id}}" class="btn btn-outline-info">Details</a></td>
       <td><a href="admin/painting/edit/{{painting.id}}" class="btn btn-outline-success">Edit</a></td>
       <td><a class="btn btn-outline-danger" (click)="delete(painting.id)">Delete</a></td>
