@@ -4,6 +4,7 @@ import {PaintingService} from "../../../../../services/painting.service";
 import {PaintingTypeService} from "../../../../../services/painting-type.service";
 import {Painting} from "../../../../../models/painting.model";
 import {Router} from "@angular/router";
+import {F_Painting} from "./painting.form";
 
 @Component({
   selector: 'app-painting-form',
@@ -11,34 +12,18 @@ import {Router} from "@angular/router";
   styleUrls: ['./painting-form.component.scss']
 })
 export class PaintingFormComponent implements OnInit {
-  id!: number;
-  painting!: Painting;
+  id?: number;
+  painting?: Painting;
   paintingTypeArray: any[] = [];
 
-  updatePaintingForm: FormGroup;
-  nameCtl: FormControl;
-  descriptionCtl: FormControl;
-  priceCtl: FormControl;
-  paintingTypeCtl: FormControl;
+  updatePaintingForm: FormGroup = new FormGroup(F_Painting);
 
   constructor(
     private paintingService: PaintingService,
     private paintingTypeService: PaintingTypeService,
-    private fb: FormBuilder,
     private router: Router
-  ) {
-    this.nameCtl = this.fb.control(null, [Validators.required]);
-    this.descriptionCtl = this.fb.control(null, [Validators.required]);
-    this.priceCtl = this.fb.control(null, [Validators.required]);
-    this.paintingTypeCtl = this.fb.control(null, [Validators.required]);
+  ) { }
 
-    this.updatePaintingForm = this.fb.group({
-      name: this.nameCtl,
-      description: this.descriptionCtl,
-      price: this.priceCtl,
-      paintingTypeId: this.paintingTypeCtl
-    });
-  }
 
   ngOnInit(): void {
     this.paintingTypeService.getAll()
@@ -47,11 +32,21 @@ export class PaintingFormComponent implements OnInit {
     this.id = Number(this.router.url.charAt(this.router.url.length - 1));
 
     this.paintingService.getOneById(this.id)
-      .subscribe((data) => this.painting = data);
+      .subscribe((data) => {
+        this.updatePaintingForm.setValue({
+          name: data.name,
+          description: data.description,
+          price: data.price,
+          paintingTypeId: data.paintingType.id,
+          isAvailable: data.available // DTO not matching so use of available which is not defined
+        })
+      });
   }
 
   submit(){
-
+    const value = this.updatePaintingForm.value;
+    this.paintingService.update(Number(this.router.url.charAt(this.router.url.length - 1)), value).subscribe();
+    this.router.navigateByUrl('admin/painting/list');
   }
 
 }

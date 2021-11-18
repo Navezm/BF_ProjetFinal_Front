@@ -1,38 +1,38 @@
 <div class="container">
   <h1>Here you can edit your painting</h1>
   <div class="p-3 bg-light rounded my-3">
-    <form [formGroup]="updatePaintingForm" (ngSubmit)="submit()">
-      <div class="form-group" *ngIf="updatePaintingForm.get('name') as nameCtl">
+    <form [formGroup]="updatePictureForm" (ngSubmit)="submit()">
+      <div class="form-group" *ngIf="updatePictureForm.get('name') as nameCtl">
         <label for="name">Name</label>
         <input type="text" class="form-control" id="name" aria-describedby="name" formControlName="name">
         <small class="text-danger" *ngIf="nameCtl.hasError('required')">
           required
         </small>
       </div>
-      <div class="form-group" *ngIf="updatePaintingForm.get('description') as descriptionCtl">
+      <div class="form-group" *ngIf="updatePictureForm.get('description') as descriptionCtl">
         <label for="description">Description</label>
         <input type="text" class="form-control" id="description" formControlName="description">
         <small class="text-danger" *ngIf="descriptionCtl.hasError('required')">
           required
         </small>
       </div>
-      <div class="form-group" *ngIf="updatePaintingForm.get('price') as priceCtl">
+      <div class="form-group" *ngIf="updatePictureForm.get('price') as priceCtl">
         <label for="price">Price</label>
         <input type="number" class="form-control" id="price" formControlName="price">
         <small class="text-danger" *ngIf="priceCtl.hasError('required')">
           required
         </small>
       </div>
-      <div class="form-group" *ngIf="updatePaintingForm.get('paintingTypeId') as paintingTypeCtl">
+      <div class="form-group" *ngIf="updatePictureForm.get('eventCategoryId') as paintingTypeCtl">
         <label>Painting Type</label>
-        <select class="form-control" formControlName="paintingTypeId">
-          <option *ngFor="let type of paintingTypeArray" [value]="type.id">{{type.name}}</option>
+        <select class="form-control" formControlName="eventCategoryId">
+          <option *ngFor="let type of pictureTypeArray" [value]="type.id">{{type.name}}</option>
         </select>
         <small class="text-danger" *ngIf="paintingTypeCtl.hasError('required')">
           required
         </small>
       </div>
-      <div class="form-group" *ngIf="updatePaintingForm.get('isAvailable') as isAvailableCtl">
+      <div class="form-group" *ngIf="updatePictureForm.get('isAvailable') as isAvailableCtl">
         <label for="price">Available</label>
         <select class="form-control" formControlName="isAvailable">
           <option [value]="true">Available</option>
@@ -42,7 +42,7 @@
           required
         </small>
       </div>
-      <button [disabled]="updatePaintingForm.invalid" type="submit" class="btn btn-outline-secondary">Submit</button>
+      <button [disabled]="updatePictureForm.invalid" type="submit" class="btn btn-outline-secondary">Submit</button>
     </form>
   </div>
 </div>

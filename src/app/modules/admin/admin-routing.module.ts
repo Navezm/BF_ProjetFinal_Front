@@ -15,6 +15,7 @@ import {PaintingPurchaseDetailsComponent} from "./painting/painting-purchase-det
 import {PicturePurchaseDetailsComponent} from "./picture/picture-purchase-details/picture-purchase-details.component";
 import {PaintingQuotationDetailsComponent} from "./painting/painting-quotation-details/painting-quotation-details.component";
 import {PaintingFormComponent} from "./form/painting/painting-form/painting-form.component";
+import {PictureFormComponent} from "./form/picture/picture-form/picture-form.component";
 
 const routes: Routes = [
   { path: 'user', component: UserListComponent },
@@ -34,7 +35,8 @@ const routes: Routes = [
       { path: 'list', component: PictureListComponent },
       { path: 'purchase', component: PicturePurchaseListComponent },
       { path: ':id', component: PictureDetailsComponent },
-      { path: 'purchase/:id', component: PicturePurchaseDetailsComponent }
+      { path: 'purchase/:id', component: PicturePurchaseDetailsComponent },
+      { path: 'edit/:id', component: PictureFormComponent }
     ] }
 ];
 
