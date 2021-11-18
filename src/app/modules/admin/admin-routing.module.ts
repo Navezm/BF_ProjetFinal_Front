@@ -17,6 +17,7 @@ import {PaintingQuotationDetailsComponent} from "./painting/painting-quotation-d
 import {PaintingFormComponent} from "./form/painting/painting-form/painting-form.component";
 import {PictureFormComponent} from "./form/picture/picture-form/picture-form.component";
 import {PaintingPurchaseFormComponent} from "./form/painting/painting-purchase-form/painting-purchase-form.component";
+import {PaintingQuotationFormComponent} from "./form/painting/painting-quotation-form/painting-quotation-form.component";
 
 const routes: Routes = [
   { path: 'user', component: UserListComponent },
@@ -30,7 +31,8 @@ const routes: Routes = [
       { path: 'purchase/:id', component: PaintingPurchaseDetailsComponent },
       { path: 'quotation/:id', component: PaintingQuotationDetailsComponent },
       { path: 'edit/:id', component: PaintingFormComponent },
-      { path: 'purchase/edit/:id', component: PaintingPurchaseFormComponent }
+      { path: 'purchase/edit/:id', component: PaintingPurchaseFormComponent },
+      { path: 'quotation/edit/:id', component: PaintingQuotationFormComponent }
     ] },
   { path: 'picture', children: [
       { path: 'add', component: AddPictureComponent },

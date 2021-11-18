@@ -17,7 +17,7 @@
       <th scope="row">{{painting.status}}</th>
       <th scope="row">{{painting.user.username}}</th>
       <td><a class="btn btn-outline-info" href="admin/painting/quotation/{{painting.id}}">Details</a></td>
-      <td><a class="btn btn-outline-success">Edit</a></td>
+      <td><a class="btn btn-outline-success" href="admin/painting/quotation/edit/{{painting.id}}">Edit</a></td>
       <td><a class="btn btn-outline-danger" (click)="delete(painting.id)">Delete</a></td>
     </tr>
     </tbody>
