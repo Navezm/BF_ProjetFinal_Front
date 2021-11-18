@@ -19,6 +19,7 @@ import { PicturePurchaseDetailsComponent } from './picture/picture-purchase-deta
 import { PaintingQuotationDetailsComponent } from './painting/painting-quotation-details/painting-quotation-details.component';
 import { PaintingFormComponent } from './form/painting/painting-form/painting-form.component';
 import { PictureFormComponent } from './form/picture/picture-form/picture-form.component';
+import { PaintingPurchaseFormComponent } from './form/painting/painting-purchase-form/painting-purchase-form.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { PictureFormComponent } from './form/picture/picture-form/picture-form.c
     PicturePurchaseDetailsComponent,
     PaintingQuotationDetailsComponent,
     PaintingFormComponent,
-    PictureFormComponent
+    PictureFormComponent,
+    PaintingPurchaseFormComponent
   ],
   imports: [
     CommonModule,
