@@ -15,7 +15,7 @@
     <tbody>
     <tr *ngFor="let picture of pictureList">
       <td>{{picture.id}}</td>
-      <td><img class="imgAdminPictureList" src="../../../../../assets{{picture.src}}"></td>
+      <td><img class="imgAdminPictureList" src="assets{{picture.src}}"></td>
       <td>{{picture.name}}</td>
       <td>{{picture.eventCategory.name}}</td>
       <td><a href="admin/picture/{{picture.id}}" class="btn btn-outline-info">Details</a></td>

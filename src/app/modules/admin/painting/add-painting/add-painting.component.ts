@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {PaintingTypeService} from "../../../../services/painting-type.service";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {PaintingService} from "../../../../services/painting.service";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-add-painting',
@@ -10,6 +11,7 @@ import {PaintingService} from "../../../../services/painting.service";
 })
 export class AddPaintingComponent implements OnInit {
   paintingTypeArray: any[] = [];
+  selectedFile?: File;
 
   addPaintingForm: FormGroup;
   nameCtl: FormControl;
@@ -21,7 +23,8 @@ export class AddPaintingComponent implements OnInit {
   constructor(
     private paintingTypeService: PaintingTypeService,
     private paintingService: PaintingService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private http: HttpClient
   ) {
     this.nameCtl = this.fb.control(null, [Validators.required]);
     this.descriptionCtl = this.fb.control(null, [Validators.required]);
@@ -40,6 +43,15 @@ export class AddPaintingComponent implements OnInit {
   ngOnInit(): void {
     this.paintingTypeService.getAll()
       .subscribe((data) => this.paintingTypeArray = data);
+  }
+
+  onFileSelected(event: any){
+    this.selectedFile = event.target.files[0];
+  }
+
+  submit(){
+    this.http.post('http://localhost:4200/assets/img/painting', this.selectedFile)
+      .subscribe();
   }
 
 }

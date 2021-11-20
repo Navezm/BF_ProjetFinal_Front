@@ -63,7 +63,7 @@ export class AuthService {
   }
 
   public isUser() {
-    return this.checkAuthorization('USER');
+    return this.checkAuthorization('USER') || this.checkAuthorization('ADMIN');
   }
 
 
