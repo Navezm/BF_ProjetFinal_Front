@@ -11,14 +11,13 @@ import {HttpClient} from "@angular/common/http";
 })
 export class AddPaintingComponent implements OnInit {
   paintingTypeArray: any[] = [];
-  selectedFile?: File;
+  fileName: string = "";
 
   addPaintingForm: FormGroup;
   nameCtl: FormControl;
   descriptionCtl: FormControl;
   priceCtl: FormControl;
   paintingTypeCtl: FormControl;
-  paintingCtl: FormControl;
 
   constructor(
     private paintingTypeService: PaintingTypeService,
@@ -30,7 +29,6 @@ export class AddPaintingComponent implements OnInit {
     this.descriptionCtl = this.fb.control(null, [Validators.required]);
     this.priceCtl = this.fb.control(null, [Validators.required]);
     this.paintingTypeCtl = this.fb.control(null, [Validators.required]);
-    this.paintingCtl = this.fb.control(null, [Validators.required]);
 
     this.addPaintingForm = this.fb.group({
       name: this.nameCtl,
@@ -44,14 +42,30 @@ export class AddPaintingComponent implements OnInit {
     this.paintingTypeService.getAll()
       .subscribe((data) => this.paintingTypeArray = data);
   }
+  //
+  // onUploadFile(event: any){
+  //   console.log(event.target.files[0]);
+  //   const file = event.target.files[0];
+  //   const formData = new FormData();
+  //   formData.append('file', file, file.name);
+  //   this.fileName = file.name;
+  //   this.paintingService.upload(formData).subscribe();
+  // }
 
-  onFileSelected(event: any){
-    this.selectedFile = event.target.files[0];
+  onUploadFile(event: any){
+    const files = event.target.files;
+    const formData = new FormData();
+    for (const file of files) { formData.append('files', file, file.name) }
+    this.paintingService.upload(formData).subscribe(
+      event => {
+        console.log(event);
+      }
+    );
   }
 
   submit(){
-    this.http.post('http://localhost:4200/assets/img/painting', this.selectedFile)
-      .subscribe();
+    const values = this.addPaintingForm.value;
+    this.paintingService.insert(values).subscribe();
   }
 
 }
