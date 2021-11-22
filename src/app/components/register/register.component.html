@@ -1,5 +1,5 @@
 <div class='container d-flex justify-content-center'>
-  <div class='col-sm-8 col-sm-offset2'>
+  <div class='col-sm-8 col-sm-offset2 bg-light p-4 rounded'>
     <form (ngSubmit)="submit(userForm)" [formGroup]="userForm">
       <div class="form-group">
         <label for="username">
@@ -19,6 +19,16 @@
                placeholder="" [formControl]="passwordCtl">
         <small class="text-danger" *ngIf="passwordCtl.hasError('required')">
           required
+        </small>
+      </div>
+      <div class="form-group">
+        <label for="password">
+          Password Confirmation
+        </label>
+        <input type="password" id="password2" class="form-control"
+               placeholder="" [formControl]="password2Ctl">
+        <small class="text-danger" *ngIf="userForm.invalid">
+          not matching passwords
         </small>
       </div>
       <div class="form-group">
@@ -72,7 +82,7 @@
           required
         </small>
       </div>
-      <button class="btn btn-primary" type="submit" [disabled]="userForm.invalid">
+      <button class="btn btn-outline-secondary" type="submit" [disabled]="userForm.invalid">
         Register
       </button>
     </form>
