@@ -19,7 +19,8 @@ export class PaintingQuotationDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.paintingQuotationService.getOneById(Number(this.router.url.charAt(this.router.url.length - 1)))
+    let tab: string[] = this.router.url.split('/');
+    this.paintingQuotationService.getOneById(Number(tab[tab.length - 1]))
       .subscribe((data) => this.paintingQuotation = data);
   }
 
