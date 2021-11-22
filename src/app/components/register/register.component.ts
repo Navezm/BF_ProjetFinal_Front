@@ -4,6 +4,7 @@ import {AuthService} from "../../services/auth.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {User} from "../../models/user.model";
 import {UserService} from "../../services/user.service";
+import {ServerService} from "../../services/server.service";
 
 @Component({
   templateUrl: './register.component.html',
@@ -25,6 +26,7 @@ export class RegisterComponent implements OnInit {
     private fb: FormBuilder,
     private userService: UserService,
     private activatedRoute: ActivatedRoute,
+    private server: ServerService,
     private router: Router
   ) {
     this.usernameCtl = this.fb.control(null, [Validators.required]);
@@ -56,17 +58,11 @@ export class RegisterComponent implements OnInit {
   }
 
   submit(userForm: FormGroup) {
-    // const user: User = {
-    //   username: userForm.value.username,
-    //   email: userForm.value.email,
-    //   password: userForm.value.password,
-    //   address: userForm.value.address
-    // };
-
     const user = userForm.value as User;
 
-    this.userService.insert(user)
-      .subscribe(() => this.router.navigate(['']));
+    this.authService.register(user).subscribe();
+
+    this.router.navigateByUrl('');
   }
 
 }

@@ -30,7 +30,19 @@ export class AuthService {
           this.isLoggedIn = true;
         }
         return this.isLoggedIn;
-      }))
+      }));
+  }
+
+  public register(user: User) {
+    return this.server.post<User>('/register', user)
+      .pipe(map((user: User) => {
+        if(user.token) {
+          localStorage.setItem('token', user.token.replace('Bearer ', ''));
+          localStorage.setItem('user', JSON.stringify(user));
+          this.isLoggedIn = true;
+        }
+        return this.isLoggedIn;
+      }));
   }
 
   public logout() {
@@ -40,39 +52,24 @@ export class AuthService {
     this.router.navigate(['login']);
   }
 
-  public isCurrentUser(user: User) {
-    const loggedUser = JSON.parse(<string>localStorage.getItem('user')) as User;
+  private checkAuthorization(type: string) {
+    const user = JSON.parse(<string>localStorage.getItem('user')) as User;
 
-    return user.id == loggedUser.id;
+    if(user) {
+      return user.group.name == type;
+    }
+
+    return false;
   }
 
-  // private checkAuthorization(type: Role) {
-  //   const user = JSON.parse(<string>localStorage.getItem('user')) as User;
-  //
-  //   if(user) {
-  //     return user.roles.includes(type);
-  //   }
-  //
-  //   return false;
-  // }
+  public isUser() {
+    return this.checkAuthorization('USER') || this.checkAuthorization('ADMIN');
+  }
 
-  // public isUser() {
-  //   const role: Role = {
-  //     id: 2,
-  //     name: "USER"
-  //   }
-  //
-  //   return this.checkAuthorization(role);
-  // }
-  //
-  // public isAdmin() {
-  //   const role: Role = {
-  //     id: 1,
-  //     name: "ADMIN"
-  //   }
-  //
-  //   return this.checkAuthorization(role);
-  // }
+
+  public isAdmin() {
+    return this.checkAuthorization('ADMIN');
+  }
 
   public getloggedIn() {
     return this.isLoggedIn;
@@ -88,3 +85,4 @@ export class AuthService {
     return true;
   }
 }
+

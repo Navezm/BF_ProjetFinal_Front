@@ -1,0 +1,25 @@
+<div class="container">
+  <h1 class="text-center">Photography Purchase List</h1>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Status</th>
+      <th scope="col">Username</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let picture of picturePurchaseList">
+      <td>{{picture.id}}</td>
+      <td>{{picture.status}}</td>
+      <td>{{picture.user.username}}</td>
+      <td><a class="btn btn-outline-info" href="admin/picture/purchase/{{picture.id}}">Details</a></td>
+      <td><a class="btn btn-outline-success" href="admin/picture/purchase/edit/{{picture.id}}">Edit</a></td>
+      <td><a class="btn btn-outline-danger" (click)="delete(picture.id)">Delete</a></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

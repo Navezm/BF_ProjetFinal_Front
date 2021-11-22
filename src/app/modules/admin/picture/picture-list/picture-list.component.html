@@ -1,0 +1,27 @@
+<div class="container">
+  <h1 class="text-center">Photography List</h1>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Preview</th>
+      <th scope="col">Name</th>
+      <th scope="col">Type</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let picture of pictureList">
+      <td>{{picture.id}}</td>
+      <td><img class="imgAdminPictureList" src="assets{{picture.src}}"></td>
+      <td>{{picture.name}}</td>
+      <td>{{picture.eventCategory.name}}</td>
+      <td><a href="admin/picture/{{picture.id}}" class="btn btn-outline-info">Details</a></td>
+      <td><a href="admin/picture/edit/{{picture.id}}" class="btn btn-outline-success">Edit</a></td>
+      <td><a class="btn btn-outline-danger" (click)="delete(picture.id)">Delete</a></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

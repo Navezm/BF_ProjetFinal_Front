@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="jumbotron">
+    <h1 class="display-4">Username: {{user.username}}</h1>
+    <p class="lead">Email: {{user.email}}</p>
+    <p class="lead">Address: {{user.address.number}} {{user.address.street}}, {{user.address.postCode}} {{user.address.city}}</p>
+    <hr class="my-4">
+    <a class="btn btn-lg btn-outline-danger" (click)="delete(user.id)">Delete</a>
+  </div>
+</div>

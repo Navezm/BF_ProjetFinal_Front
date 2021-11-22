@@ -65,9 +65,7 @@ export class QuotationViewComponent implements OnInit {
 
   ngOnInit(): void {
     this.paintingTypeService.getAll()
-      .subscribe((data) =>
-        data.forEach((x) => this.paintingTypeArray.push(x))
-      );
+      .subscribe((data) => this.paintingTypeArray = data);
   }
 
   submit(quotationForm: FormGroup){
@@ -76,8 +74,17 @@ export class QuotationViewComponent implements OnInit {
     quotation.status = Status.PENDING;
     quotation.user = JSON.parse(<string>localStorage.getItem('user')) as User;
 
-    console.log(quotation);
-    this.paintingQuotationService.insert(quotation).subscribe((data) => console.log(data));
+    this.paintingQuotationService.insert(quotation).subscribe();
+
+    this.quotationDone();
+  }
+
+  quotationDone(){
+    let divOrder = document.getElementById('divOrderDone');
+    // @ts-ignore
+    divOrder.style.display = 'block';
+
+    this.quotationForm.reset();
   }
 
 }

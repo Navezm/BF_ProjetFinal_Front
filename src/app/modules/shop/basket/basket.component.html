@@ -20,7 +20,7 @@
     </div>
   </div>
   <p class="lead text-right">
-    <button class="btn btn-outline-secondary btn-lg" (click)="sendPurchase(items)" role="button">Order</button>
+    <button class="btn btn-outline-secondary btn-lg" (click)="sendPurchase(items)" [disabled]="items.length == 0" role="button">Order</button>
   </p>
   <div class="w-100 text-center text-success" id="divSuccess">
     <p id="pSuccess">Your order was successfully made!</p>

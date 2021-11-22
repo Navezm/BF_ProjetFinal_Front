@@ -1,4 +1,5 @@
 import {ServerService} from "./server.service";
+import {map, tap} from "rxjs/operators";
 
 export abstract class CRUD<T> {
   protected server: ServerService;
@@ -17,7 +18,7 @@ export abstract class CRUD<T> {
   }
 
   public getOneById(id: number) {
-    return this.server.get<T>(this.config.path + `/${id}`);
+    return this.server.get<any>(this.config.path + `/${id}`);
   }
 
   public insert(body: T) {
