@@ -11,9 +11,6 @@ const config: CrudConfig = { path: "/painting" }
   providedIn: 'root'
 })
 export class PaintingService extends CRUD<Painting>{
-  insert(body: Painting, ): Observable<Painting> {
-    return super.insert(body);
-  }
 
   constructor(
     protected server: ServerService,

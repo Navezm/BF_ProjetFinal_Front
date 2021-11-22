@@ -1,54 +1,53 @@
 <div class="container">
-<!--  <h1>Here you can add new paintings</h1>-->
-<!--  <div class="p-3 bg-light rounded my-3">-->
-<!--    <form (ngSubmit)="submit()" [formGroup]="addPaintingForm" enctype="multipart/form-data">-->
-<!--      <div class="form-group">-->
-<!--        <label for="name">Name</label>-->
-<!--        <input type="text" class="form-control" id="name" aria-describedby="name">-->
-<!--        <small class="text-danger" *ngIf="nameCtl.hasError('required')">-->
-<!--          required-->
-<!--        </small>-->
-<!--      </div>-->
-<!--      <div class="form-group">-->
-<!--        <label for="description">Description</label>-->
-<!--        <input type="text" class="form-control" id="description">-->
-<!--        <small class="text-danger" *ngIf="descriptionCtl.hasError('required')">-->
-<!--          required-->
-<!--        </small>-->
-<!--      </div>-->
-<!--      <div class="form-group">-->
-<!--        <label for="price">Price</label>-->
-<!--        <input type="number" class="form-control" id="price">-->
-<!--        <small class="text-danger" *ngIf="priceCtl.hasError('required')">-->
-<!--          required-->
-<!--        </small>-->
-<!--      </div>-->
-<!--      <div class="form-group">-->
-<!--        <label>Painting Type</label>-->
-<!--        <select class="form-control" [formControl]="paintingTypeCtl">-->
-<!--          <option *ngFor="let type of paintingTypeArray" value="{{type.id}}">{{type.name}}</option>-->
-<!--        </select>-->
-<!--        <small class="text-danger" *ngIf="paintingTypeCtl.hasError('required')">-->
-<!--          required-->
-<!--        </small>-->
-<!--      </div>-->
-<!--      <div class="form-group">-->
-<!--        <label for="img">Painting</label>-->
-<!--        <input type="file" class="form-control" id="img" multiple name="file" (change)="onUploadFile($event)">-->
-<!--      </div>-->
-<!--      <button  type="submit" class="btn btn-outline-secondary">Submit</button>-->
-<!--    </form>-->
-<!--  </div>-->
-
-  <form enctype="multipart/form-data">
-    <fieldset>
-      <div class="form-group">
-        <div>
-          <input type="file" (change)="onUploadFile($event)" name="files" multiple class="form-control" />
+  <h1>Here you can add new paintings</h1>
+  <div class="p-3 bg-light rounded my-3">
+<!--  Form to upload file  -->
+    <form enctype="multipart/form-data">
+      <fieldset>
+        <div class="form-group">
+          <div>
+            <label for="files">Painting to insert</label>
+            <input type="file" (change)="onUploadFile($event)" id="files" name="files" multiple class="form-control" />
+          </div>
         </div>
+      </fieldset>
+    </form>
+
+<!--  Form to set the characteristics of the files  -->
+    <form (ngSubmit)="submit()" [formGroup]="addPaintingForm">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" aria-describedby="name" [formControl]="nameCtl">
+        <small class="text-danger" *ngIf="nameCtl.hasError('required')">
+          required
+        </small>
       </div>
-    </fieldset>
-  </form>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input type="text" class="form-control" id="description" [formControl]="descriptionCtl">
+        <small class="text-danger" *ngIf="descriptionCtl.hasError('required')">
+          required
+        </small>
+      </div>
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input type="number" class="form-control" id="price" [formControl]="priceCtl">
+        <small class="text-danger" *ngIf="priceCtl.hasError('required')">
+          required
+        </small>
+      </div>
+      <div class="form-group">
+        <label>Painting Type</label>
+        <select class="form-control" [formControl]="paintingTypeCtl">
+          <option *ngFor="let type of paintingTypeArray" value="{{type.id}}">{{type.name}}</option>
+        </select>
+        <small class="text-danger" *ngIf="paintingTypeCtl.hasError('required')">
+          required
+        </small>
+      </div>
+      <button  type="submit" [disabled]="addPaintingForm.invalid" class="btn btn-outline-secondary">Submit</button>
+    </form>
+  </div>
 </div>
 
-<!--[disabled]="addPaintingForm.invalid"-->
+

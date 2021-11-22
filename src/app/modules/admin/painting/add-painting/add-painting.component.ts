@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {PaintingTypeService} from "../../../../services/painting-type.service";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {PaintingService} from "../../../../services/painting.service";
-import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-add-painting',
@@ -22,8 +21,7 @@ export class AddPaintingComponent implements OnInit {
   constructor(
     private paintingTypeService: PaintingTypeService,
     private paintingService: PaintingService,
-    private fb: FormBuilder,
-    private http: HttpClient
+    private fb: FormBuilder
   ) {
     this.nameCtl = this.fb.control(null, [Validators.required]);
     this.descriptionCtl = this.fb.control(null, [Validators.required]);
@@ -34,7 +32,9 @@ export class AddPaintingComponent implements OnInit {
       name: this.nameCtl,
       description: this.descriptionCtl,
       price: this.priceCtl,
-      paintingTypeId: this.paintingTypeCtl
+      paintingTypeId: this.paintingTypeCtl,
+      isAvailable: true,
+      src: ""
     });
   }
 
@@ -42,20 +42,14 @@ export class AddPaintingComponent implements OnInit {
     this.paintingTypeService.getAll()
       .subscribe((data) => this.paintingTypeArray = data);
   }
-  //
-  // onUploadFile(event: any){
-  //   console.log(event.target.files[0]);
-  //   const file = event.target.files[0];
-  //   const formData = new FormData();
-  //   formData.append('file', file, file.name);
-  //   this.fileName = file.name;
-  //   this.paintingService.upload(formData).subscribe();
-  // }
 
   onUploadFile(event: any){
     const files = event.target.files;
     const formData = new FormData();
-    for (const file of files) { formData.append('files', file, file.name) }
+    for (const file of files) {
+      formData.append('files', file, file.name);
+      this.fileName = file.name;
+    }
     this.paintingService.upload(formData).subscribe(
       event => {
         console.log(event);
@@ -64,6 +58,7 @@ export class AddPaintingComponent implements OnInit {
   }
 
   submit(){
+    this.addPaintingForm.value.src = this.fileName;
     const values = this.addPaintingForm.value;
     this.paintingService.insert(values).subscribe();
   }
