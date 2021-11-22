@@ -61,6 +61,16 @@ export class AddPaintingComponent implements OnInit {
     this.addPaintingForm.value.src = this.fileName;
     const values = this.addPaintingForm.value;
     this.paintingService.insert(values).subscribe();
+
+    this.addPaintingDone();
+  }
+
+  addPaintingDone(){
+    let divOrder = document.getElementById('divOrderDone');
+    // @ts-ignore
+    divOrder.style.display = 'block';
+
+    this.addPaintingForm.reset();
   }
 
 }
