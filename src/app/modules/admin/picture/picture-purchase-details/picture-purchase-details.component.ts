@@ -17,7 +17,8 @@ export class PicturePurchaseDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.picturePurchaseService.getOneById(Number(this.router.url.charAt(this.router.url.length - 1)))
+    let tab: string[] = this.router.url.split('/');
+    this.picturePurchaseService.getOneById(Number(tab[tab.length - 1]))
       .subscribe((data) => this.picturePurchase = data);
   }
 
