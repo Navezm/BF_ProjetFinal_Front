@@ -12,7 +12,7 @@ import {UtilService} from "../../../../../services/util.service";
   styleUrls: ['./picture-purchase-form.component.scss']
 })
 export class PicturePurchaseFormComponent implements OnInit {
-  id?: number;
+  id: number = 0;
 
   updatePicturePurchaseForm: FormGroup = new FormGroup(F_Picture_Purchase);
 
@@ -28,7 +28,8 @@ export class PicturePurchaseFormComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.id = Number(this.router.url.charAt(this.router.url.length - 1));
+    let tab: string[] = this.router.url.split('/');
+    this.id = Number(tab[tab.length - 1]);
 
     this.picturePurchaseService.getOneById(this.id)
       .subscribe((data) => {
@@ -42,7 +43,7 @@ export class PicturePurchaseFormComponent implements OnInit {
 
   submit(){
     const value =this.updatePicturePurchaseForm.value;
-    this.picturePurchaseService.update(Number(this.router.url.charAt(this.router.url.length - 1)), value).subscribe();
+    this.picturePurchaseService.update(this.id, value).subscribe();
     this.router.navigateByUrl('admin/picture/purchase');
   }
 

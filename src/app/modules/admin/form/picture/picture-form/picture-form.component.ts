@@ -12,7 +12,7 @@ import {Router} from "@angular/router";
   styleUrls: ['./picture-form.component.scss']
 })
 export class PictureFormComponent implements OnInit {
-  id?: number;
+  id: number = 0;
   picture?: Picture;
   pictureTypeArray: any[] = [];
 
@@ -28,7 +28,8 @@ export class PictureFormComponent implements OnInit {
     this.pictureTypeService.getAll()
       .subscribe((data) => this.pictureTypeArray = data);
 
-    this.id = Number(this.router.url.charAt(this.router.url.length - 1));
+    let tab: string[] = this.router.url.split('/');
+    this.id = Number(tab[tab.length - 1]);
 
     this.pictureService.getOneById(this.id)
       .subscribe((data) => {
@@ -44,7 +45,7 @@ export class PictureFormComponent implements OnInit {
 
   submit(){
     const value = this.updatePictureForm.value;
-    this.pictureService.update(Number(this.router.url.charAt(this.router.url.length - 1)), value).subscribe();
+    this.pictureService.update(Number(this.id), value).subscribe();
     this.router.navigateByUrl('admin/picture/list');
   }
 

@@ -11,7 +11,7 @@ import {Router} from "@angular/router";
   styleUrls: ['./painting-quotation-form.component.scss']
 })
 export class PaintingQuotationFormComponent implements OnInit {
-  id?: number;
+  id: number = 0;
 
   updatePaintingQuotationForm: FormGroup = new FormGroup(F_Painting_Quotation);
 
@@ -27,7 +27,8 @@ export class PaintingQuotationFormComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.id = Number(this.router.url.charAt(this.router.url.length - 1));
+    let tab: string[] = this.router.url.split('/');
+    this.id = Number(tab[tab.length - 1]);
 
     this.paintingQuotationService.getOneById(this.id)
       .subscribe((data) => {
@@ -44,7 +45,7 @@ export class PaintingQuotationFormComponent implements OnInit {
 
   submit(){
     const value = this.updatePaintingQuotationForm.value;
-    this.paintingQuotationService.update(Number(this.router.url.charAt(this.router.url.length - 1)), value).subscribe();
+    this.paintingQuotationService.update(Number(this.id), value).subscribe();
     this.router.navigateByUrl('admin/painting/quotation');
   }
 

@@ -12,7 +12,7 @@ import {F_Painting} from "./painting.form";
   styleUrls: ['./painting-form.component.scss']
 })
 export class PaintingFormComponent implements OnInit {
-  id?: number;
+  id: number = 0;
   painting?: Painting;
   paintingTypeArray: any[] = [];
 
@@ -29,7 +29,8 @@ export class PaintingFormComponent implements OnInit {
     this.paintingTypeService.getAll()
       .subscribe((data) => this.paintingTypeArray = data);
 
-    this.id = Number(this.router.url.charAt(this.router.url.length - 1));
+    let tab: string[] = this.router.url.split('/');
+    this.id = Number(tab[tab.length - 1]);
 
     this.paintingService.getOneById(this.id)
       .subscribe((data) => {
@@ -45,7 +46,7 @@ export class PaintingFormComponent implements OnInit {
 
   submit(){
     const value = this.updatePaintingForm.value;
-    this.paintingService.update(Number(this.router.url.charAt(this.router.url.length - 1)), value).subscribe();
+    this.paintingService.update(this.id, value).subscribe();
     this.router.navigateByUrl('admin/painting/list');
   }
 

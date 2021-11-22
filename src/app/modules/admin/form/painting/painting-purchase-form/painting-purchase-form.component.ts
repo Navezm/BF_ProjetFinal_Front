@@ -12,7 +12,7 @@ import {F_Painting_Purchase} from "./painting-purchase.form";
   styleUrls: ['./painting-purchase-form.component.scss']
 })
 export class PaintingPurchaseFormComponent implements OnInit {
-  id?: number;
+  id: number = 0;
 
   updatePaintingPurchaseForm: FormGroup = new FormGroup(F_Painting_Purchase);
 
@@ -28,7 +28,8 @@ export class PaintingPurchaseFormComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.id = Number(this.router.url.charAt(this.router.url.length - 1));
+    let tab: string[] = this.router.url.split('/');
+    this.id = Number(tab[tab.length - 1]);
 
     this.paintingPurchaseService.getOneById(this.id)
       .subscribe((data) => {
@@ -43,7 +44,7 @@ export class PaintingPurchaseFormComponent implements OnInit {
 
   submit(){
     const value = this.updatePaintingPurchaseForm.value;
-    this.paintingPurchaseService.update(Number(this.router.url.charAt(this.router.url.length - 1)), value).subscribe();
+    this.paintingPurchaseService.update(Number(this.id), value).subscribe();
     this.router.navigateByUrl('admin/painting/purchase');
   }
 
