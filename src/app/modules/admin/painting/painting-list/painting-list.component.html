@@ -15,7 +15,7 @@
     <tbody>
     <tr *ngFor="let painting of paintingList">
       <td>{{painting.id}}</td>
-      <td><img class="imgAdminPaintingList" src="assets{{painting.src}}"></td>
+      <td><img class="imgAdminPaintingList" src="{{painting.src.includes('/img') ? 'assets' + painting.src : painting.src}}"></td>
       <td>{{painting.name}}</td>
       <td>{{painting.paintingType.name}}</td>
       <td><a href="admin/painting/{{painting.id}}" class="btn btn-outline-info">Details</a></td>

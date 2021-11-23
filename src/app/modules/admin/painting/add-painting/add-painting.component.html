@@ -32,7 +32,7 @@
       <div class="form-group">
         <label for="src">Link of the image</label>
         <input type="text" class="form-control" id="src" [formControl]="srcCtl">
-        <small class="text-danger" *ngIf="descriptionCtl.hasError('required')">
+        <small class="text-danger" *ngIf="srcCtl.hasError('required')">
           required
         </small>
       </div>

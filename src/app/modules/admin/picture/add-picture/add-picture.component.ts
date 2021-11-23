@@ -18,6 +18,7 @@ export class AddPictureComponent implements OnInit {
   descriptionCtl: FormControl;
   priceCtl: FormControl;
   pictureTypeCtl: FormControl;
+  srcCtl: FormControl;
 
   constructor(
     private pictureTypeService: PictureCategoryService,
@@ -28,6 +29,7 @@ export class AddPictureComponent implements OnInit {
     this.descriptionCtl = this.fb.control(null, [Validators.required]);
     this.priceCtl = this.fb.control(null, [Validators.required]);
     this.pictureTypeCtl = this.fb.control(null, [Validators.required]);
+    this.srcCtl = this.fb.control(null, [Validators.required]);
 
     this.addPictureForm = this.fb.group({
       name: this.nameCtl,
@@ -35,7 +37,7 @@ export class AddPictureComponent implements OnInit {
       price: this.priceCtl,
       eventCategoryId: this.pictureTypeCtl,
       isAvailable: true,
-      src: ""
+      src: this.srcCtl
     });
   }
 
@@ -59,7 +61,7 @@ export class AddPictureComponent implements OnInit {
   }
 
   submit(){
-    this.addPictureForm.value.src = this.fileName;
+    // this.addPictureForm.value.src = this.fileName;
     const values = this.addPictureForm.value;
     this.pictureService.insert(values).subscribe();
 
