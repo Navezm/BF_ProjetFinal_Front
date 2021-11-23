@@ -20,7 +20,9 @@ export class UserDetailsComponent implements OnInit {
   ngOnInit(): void {
     let tab: string[] = this.router.url.split('/');
     this.userService.getOneById(Number(tab[tab.length - 1]))
-      .subscribe((user) => this.user = user);
+      .subscribe((user) => {
+        this.user = user;
+      });
   }
 
   delete(id: any){

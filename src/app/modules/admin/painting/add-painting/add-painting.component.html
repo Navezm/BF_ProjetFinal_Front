@@ -1,17 +1,17 @@
 <div class="container">
   <h1>Here you can add new paintings</h1>
   <div class="p-3 bg-light rounded my-3">
-<!--  Form to upload file  -->
-    <form enctype="multipart/form-data">
-      <fieldset>
-        <div class="form-group">
-          <div>
-            <label for="files">Painting to insert</label>
-            <input type="file" (change)="onUploadFile($event)" id="files" name="files" multiple class="form-control" />
-          </div>
-        </div>
-      </fieldset>
-    </form>
+<!--&lt;!&ndash;  Form to upload file  &ndash;&gt;-->
+<!--    <form enctype="multipart/form-data">-->
+<!--      <fieldset>-->
+<!--        <div class="form-group">-->
+<!--          <div>-->
+<!--            <label for="files">Painting to insert</label>-->
+<!--            <input type="file" (change)="onUploadFile($event)" id="files" name="files" multiple class="form-control" />-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </fieldset>-->
+<!--    </form>-->
 
 <!--  Form to set the characteristics of the files  -->
     <form (ngSubmit)="submit()" [formGroup]="addPaintingForm">
@@ -26,6 +26,13 @@
         <label for="description">Description</label>
         <input type="text" class="form-control" id="description" [formControl]="descriptionCtl">
         <small class="text-danger" *ngIf="descriptionCtl.hasError('required')">
+          required
+        </small>
+      </div>
+      <div class="form-group">
+        <label for="src">Link of the image</label>
+        <input type="text" class="form-control" id="src" [formControl]="srcCtl">
+        <small class="text-danger" *ngIf="srcCtl.hasError('required')">
           required
         </small>
       </div>
