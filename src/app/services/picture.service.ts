@@ -29,4 +29,8 @@ export class PictureService extends CRUD<Picture>{
       observe: 'events'
     });
   }
+
+  getPictureBack(){
+    return this.server.get(config.path + '/allBack');
+  }
 }

@@ -17,6 +17,7 @@ export class AddPaintingComponent implements OnInit {
   descriptionCtl: FormControl;
   priceCtl: FormControl;
   paintingTypeCtl: FormControl;
+  srcCtl: FormControl;
 
   constructor(
     private paintingTypeService: PaintingTypeService,
@@ -27,6 +28,7 @@ export class AddPaintingComponent implements OnInit {
     this.descriptionCtl = this.fb.control(null, [Validators.required]);
     this.priceCtl = this.fb.control(null, [Validators.required]);
     this.paintingTypeCtl = this.fb.control(null, [Validators.required]);
+    this.srcCtl = this.fb.control(null, [Validators.required]);
 
     this.addPaintingForm = this.fb.group({
       name: this.nameCtl,
@@ -34,7 +36,7 @@ export class AddPaintingComponent implements OnInit {
       price: this.priceCtl,
       paintingTypeId: this.paintingTypeCtl,
       isAvailable: true,
-      src: ""
+      src: this.srcCtl
     });
   }
 
@@ -58,7 +60,7 @@ export class AddPaintingComponent implements OnInit {
   }
 
   submit(){
-    this.addPaintingForm.value.src = this.fileName;
+    // this.addPaintingForm.value.src = this.fileName;
     const values = this.addPaintingForm.value;
     this.paintingService.insert(values).subscribe();
 

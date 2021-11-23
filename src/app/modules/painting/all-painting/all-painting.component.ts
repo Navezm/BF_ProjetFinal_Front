@@ -10,6 +10,7 @@ import {PaintingService} from "../../../services/painting.service";
 })
 export class AllPaintingComponent implements OnInit {
   paintingList!: Painting[];
+  backPicture: Blob;
 
   constructor(
     private paintingService: PaintingService
