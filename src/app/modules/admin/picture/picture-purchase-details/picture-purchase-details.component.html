@@ -6,7 +6,7 @@
     <hr class="my-4">
     <div *ngFor="let picture of picturePurchase.pictures" class="row mb-3">
       <div class="col-3">
-        <img class="imgAdminPaintingList" src="../../../../../assets{{picture.src}}" alt="">
+        <img class="imgAdminPaintingList" src="{{picture.src.includes('/img') ? 'assets' + picture.src : picture.src}}" alt="">
       </div>
       <div class="col-9">
         <p>Name: {{picture.name}}</p>
