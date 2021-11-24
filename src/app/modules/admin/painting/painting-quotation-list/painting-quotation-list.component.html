@@ -1,0 +1,25 @@
+<div class="container">
+  <h1 class="text-center">Painting Order List</h1>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Status</th>
+      <th scope="col">Username</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let painting of paintingQuotationList">
+      <td>{{painting.id}}</td>
+      <td>{{painting.status}}</td>
+      <td>{{painting.user.username}}</td>
+      <td><a class="btn btn-outline-info" href="admin/painting/quotation/{{painting.id}}">Details</a></td>
+      <td><a class="btn btn-outline-success" href="admin/painting/quotation/edit/{{painting.id}}">Edit</a></td>
+      <td><a class="btn btn-outline-danger" (click)="delete(painting.id)">Delete</a></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

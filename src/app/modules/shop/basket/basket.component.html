@@ -1,0 +1,28 @@
+<link rel="stylesheet" href="basket.component.scss">
+<script src="../../../services/picture-purchase.service.ts"></script>
+<div class="jumbotron basket py-3 mt-3">
+  <h1 class="display-4">Basket</h1>
+  <div *ngFor="let item of items" class="row">
+    <div class="col-10">
+      <p class="lead">{{item.name}}</p>
+    </div>
+    <div class="col-2">
+      <p>{{item.price}}€</p>
+    </div>
+  </div>
+  <hr class="my-4">
+  <div class="row">
+    <div class="col-10">
+      <p class="lead">Total</p>
+    </div>
+    <div class="col-2">
+      <p class="lead">{{total}}€</p>
+    </div>
+  </div>
+  <p class="lead text-right">
+    <button class="btn btn-outline-secondary btn-lg" (click)="sendPurchase(items)" [disabled]="items.length == 0" role="button">Order</button>
+  </p>
+  <div class="w-100 text-center text-success" id="divSuccess">
+    <p id="pSuccess">Your order was successfully made!</p>
+  </div>
+</div>

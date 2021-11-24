@@ -1,0 +1,27 @@
+<div class="container">
+  <h1 class="text-center">Painting List</h1>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Preview</th>
+      <th scope="col">Name</th>
+      <th scope="col">Type</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let painting of paintingList">
+      <td>{{painting.id}}</td>
+      <td><img class="imgAdminPaintingList" src="{{painting.src.includes('/img') ? 'assets' + painting.src : painting.src}}"></td>
+      <td>{{painting.name}}</td>
+      <td>{{painting.paintingType.name}}</td>
+      <td><a href="admin/painting/{{painting.id}}" class="btn btn-outline-info">Details</a></td>
+      <td><a href="admin/painting/edit/{{painting.id}}" class="btn btn-outline-success">Edit</a></td>
+      <td><a class="btn btn-outline-danger" (click)="delete(painting.id)">Delete</a></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,26 @@
+#textPaintingQuotation{
+  height: 45vh;
+  border: 1px black solid;
+  background-image: url(../../../../assets/img/painting/IMG_0836.JPG);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  h1 {
+    color: black;
+    font-size: 2rem;
+    font-family: normal-font;
+  }
+}
+
+p{
+  font-size: 1.4rem;
+  line-height: 1.5;
+}
+
+#divOrder{
+  background-color: rgba(255,255,255, 0.75);
+}
+
+#divOrderDone{
+  display: none;
+}

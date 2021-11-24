@@ -1,0 +1,17 @@
+<div class="container">
+  <h1>Here you can edit the status of your painting order</h1>
+  <div class="p-3 bg-light rounded my-3">
+    <form [formGroup]="updatePaintingQuotationForm" (ngSubmit)="submit()">
+      <div class="form-group" *ngIf="updatePaintingQuotationForm.get('status') as statusCtl">
+        <label for="status">Status</label>
+        <select class="form-control" formControlName="status" id="status">
+          <option *ngFor="let status of statusArray" [value]="status.valueOf()">{{status.valueOf()}}</option>
+        </select>
+        <small class="text-danger" *ngIf="statusCtl.hasError('required')">
+          required
+        </small>
+      </div>
+      <button [disabled]="updatePaintingQuotationForm.invalid" type="submit" class="btn btn-outline-secondary">Submit</button>
+    </form>
+  </div>
+</div>

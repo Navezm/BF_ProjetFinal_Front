@@ -1,0 +1,10 @@
+<div class="card my-3 divTile">
+  <img class="card-img-top tile" src="{{src.includes('/img') ? 'assets'+src : src}}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Name: {{name}}</h5>
+    <p class="card-text">Description: {{description}}</p>
+    <p class="card-text">Price: {{price}}€</p>
+    <p class="card-text">Type: {{paintingType}}{{eventCategory}}</p>
+    <button (click)="emitBuyEvent(item)" class="btn btn-outline-secondary">Buy</button>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="jumbotron">
+    <h1 class="display-4">STATUS: {{paintingPurchase.status}}</h1>
+    <p class="lead">User : {{paintingPurchase.user.username}}</p>
+    <p class="lead">Address : {{paintingPurchase.address.number}} {{paintingPurchase.address.street}}, {{paintingPurchase.address.postCode}} {{paintingPurchase.address.city}}</p>
+    <hr class="my-4">
+    <div *ngFor="let painting of paintingPurchase.paintings" class="row mb-3">
+      <div class="col-2">
+        <img class="imgAdminPaintingList" src="{{painting.src.includes('/img') ? 'assets' + painting.src : painting.src}}" alt="">
+      </div>
+      <div class="col-10">
+        <p>Name: {{painting.name}}</p>
+        <p>Type: {{painting.paintingType.name}}</p>
+      </div>
+    </div>
+    <hr class="my-4">
+    <p class="lead">
+      <a class="btn btn-outline-danger btn-lg ml-2" (click)="delete(paintingPurchase.id)" role="button">Delete</a>
+    </p>
+  </div>
+</div>

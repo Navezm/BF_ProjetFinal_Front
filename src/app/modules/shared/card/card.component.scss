@@ -1,0 +1,27 @@
+.divImgGalerie{
+  height: 40vh;
+  position: relative;
+}
+
+.imgGalerie{
+  z-index: -1;
+  object-fit: cover;
+}
+
+.divImgExplanation{
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  background-color: rgba(245, 245, 220, 0);
+  color: rgba(255,255,255,0);
+  display: flex;
+  transition: .5s;
+}
+
+.divImgGalerie:hover{
+  .divImgExplanation{
+    background-color: rgba(255,255,255, 0.75);
+    color: black;
+    transition: .5s;
+  }
+}

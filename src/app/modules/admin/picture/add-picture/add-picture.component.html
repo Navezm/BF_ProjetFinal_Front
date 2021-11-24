@@ -1,0 +1,61 @@
+<div class="container">
+  <h1>Here you can add new photography</h1>
+  <div class="p-3 bg-light rounded my-3">
+<!--    &lt;!&ndash;  Form to upload file  &ndash;&gt;-->
+<!--    <form enctype="multipart/form-data">-->
+<!--      <fieldset>-->
+<!--        <div class="form-group">-->
+<!--          <div>-->
+<!--            <label for="files">Photography to insert</label>-->
+<!--            <input type="file" (change)="onUploadFile($event)" id="files" name="files" multiple class="form-control" />-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </fieldset>-->
+<!--    </form>-->
+
+    <!--  Form to set the characteristics of the files  -->
+    <form (ngSubmit)="submit()" [formGroup]="addPictureForm">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" aria-describedby="name" [formControl]="nameCtl">
+        <small class="text-danger" *ngIf="nameCtl.hasError('required')">
+          required
+        </small>
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input type="text" class="form-control" id="description" [formControl]="descriptionCtl">
+        <small class="text-danger" *ngIf="descriptionCtl.hasError('required')">
+          required
+        </small>
+      </div>
+      <div class="form-group">
+        <label for="src">Link to the photography</label>
+        <input type="text" class="form-control" id="src" [formControl]="srcCtl">
+        <small class="text-danger" *ngIf="srcCtl.hasError('required')">
+          required
+        </small>
+      </div>
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input type="number" class="form-control" id="price" [formControl]="priceCtl">
+        <small class="text-danger" *ngIf="priceCtl.hasError('required')">
+          required
+        </small>
+      </div>
+      <div class="form-group">
+        <label>Photography Type</label>
+        <select class="form-control" [formControl]="pictureTypeCtl">
+          <option *ngFor="let type of pictureTypeArray" value="{{type.id}}">{{type.name}}</option>
+        </select>
+        <small class="text-danger" *ngIf="pictureTypeCtl.hasError('required')">
+          required
+        </small>
+      </div>
+      <button [disabled]="addPictureForm.invalid" type="submit" class="btn btn-outline-secondary">Submit</button>
+    </form>
+    <div class="w-100 text-center text-success mt-3" id="divOrderDone">
+      <p id="pOrderDone">You successfully add the photography!</p>
+    </div>
+  </div>
+</div>
